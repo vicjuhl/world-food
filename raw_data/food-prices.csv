@@ -1,0 +1,604 @@
+Entity,Code,Year,healthy_unaffordable_share
+Albania,ALB,2017,37.8
+Albania,ALB,2018,27.9
+Albania,ALB,2019,19.8
+Albania,ALB,2020,20.1
+Algeria,DZA,2017,35.2
+Algeria,DZA,2018,33.9
+Algeria,DZA,2019,31.8
+Algeria,DZA,2020,30.2
+Angola,AGO,2017,92.9
+Angola,AGO,2018,93.4
+Angola,AGO,2019,93.9
+Angola,AGO,2020,94.3
+Argentina,ARG,2017,11
+Armenia,ARM,2017,40.9
+Armenia,ARM,2018,41.7
+Armenia,ARM,2019,43.6
+Armenia,ARM,2020,42.9
+Australia,AUS,2017,0.7
+Australia,AUS,2018,0.7
+Australia,AUS,2019,0.7
+Australia,AUS,2020,0.7
+Austria,AUT,2017,0.6
+Austria,AUT,2018,0.8
+Austria,AUT,2019,0.8
+Austria,AUT,2020,0.8
+Azerbaijan,AZE,2017,0
+Azerbaijan,AZE,2018,0
+Azerbaijan,AZE,2019,0
+Azerbaijan,AZE,2020,0
+Bangladesh,BGD,2017,77.4
+Bangladesh,BGD,2018,74.6
+Bangladesh,BGD,2019,73.5
+Bangladesh,BGD,2020,73.5
+Belarus,BLR,2017,0.8
+Belarus,BLR,2018,0.5
+Belarus,BLR,2019,0.3
+Belarus,BLR,2020,0.2
+Belgium,BEL,2017,0.3
+Belgium,BEL,2018,0.2
+Belgium,BEL,2019,0.2
+Belgium,BEL,2020,0.2
+Belize,BLZ,2017,39.4
+Belize,BLZ,2018,37.4
+Belize,BLZ,2019,37
+Belize,BLZ,2020,36.4
+Benin,BEN,2017,90.7
+Benin,BEN,2018,87.1
+Benin,BEN,2019,82.9
+Benin,BEN,2020,82.9
+Bhutan,BTN,2017,57.6
+Bhutan,BTN,2018,52.2
+Bhutan,BTN,2019,50
+Bhutan,BTN,2020,53
+Bolivia,BOL,2017,30.2
+Bolivia,BOL,2018,28.6
+Bolivia,BOL,2019,25.4
+Bolivia,BOL,2020,24.7
+Bosnia and Herzegovina,BIH,2017,4.6
+Bosnia and Herzegovina,BIH,2018,4
+Bosnia and Herzegovina,BIH,2019,3.6
+Bosnia and Herzegovina,BIH,2020,3.7
+Botswana,BWA,2017,63.8
+Botswana,BWA,2018,61.5
+Botswana,BWA,2019,60.8
+Botswana,BWA,2020,61.4
+Brazil,BRA,2017,18.3
+Brazil,BRA,2018,17.2
+Brazil,BRA,2019,17.5
+Brazil,BRA,2020,19
+Bulgaria,BGR,2017,11.3
+Bulgaria,BGR,2018,9
+Bulgaria,BGR,2019,8
+Bulgaria,BGR,2020,8.5
+Burkina Faso,BFA,2017,85.1
+Burkina Faso,BFA,2018,82.2
+Burkina Faso,BFA,2019,79.4
+Burkina Faso,BFA,2020,80.1
+Burundi,BDI,2017,97.5
+Burundi,BDI,2018,97
+Burundi,BDI,2019,96.9
+Burundi,BDI,2020,97.2
+Cabo Verde,,2017,42.1
+Cabo Verde,,2018,39.6
+Cabo Verde,,2019,37.6
+Cabo Verde,,2020,38.1
+Cameroon,CMR,2017,60.9
+Cameroon,CMR,2018,60.4
+Cameroon,CMR,2019,60.2
+Cameroon,CMR,2020,60.7
+Canada,CAN,2017,0.7
+Canada,CAN,2018,0.7
+Canada,CAN,2019,0.5
+Canada,CAN,2020,0.7
+Central African Republic,CAF,2017,95.4
+Central African Republic,CAF,2018,95.2
+Central African Republic,CAF,2019,95.1
+Central African Republic,CAF,2020,95.1
+Chad,TCD,2017,84.9
+Chad,TCD,2018,83.3
+Chad,TCD,2019,81.9
+Chad,TCD,2020,83.4
+Chile,CHL,2017,3.4
+Chile,CHL,2018,3.3
+Chile,CHL,2019,3.3
+Chile,CHL,2020,3.8
+China,CHN,2017,14.3
+China,CHN,2018,11.4
+China,CHN,2019,10
+China,CHN,2020,12
+Colombia,COL,2017,24.7
+Colombia,COL,2018,24.3
+Colombia,COL,2019,25.3
+Colombia,COL,2020,26.5
+Congo,COG,2017,91.6
+Congo,COG,2018,92.4
+Congo,COG,2019,92.4
+Congo,COG,2020,92.4
+Costa Rica,CRI,2017,16.2
+Costa Rica,CRI,2018,16.6
+Costa Rica,CRI,2019,16.6
+Costa Rica,CRI,2020,16.8
+Croatia,HRV,2017,7.2
+Croatia,HRV,2018,4.7
+Croatia,HRV,2019,3.6
+Croatia,HRV,2020,3.8
+Cyprus,CYP,2017,0.1
+Cyprus,CYP,2018,0.1
+Cyprus,CYP,2019,0.3
+Cyprus,CYP,2020,0.3
+Czechia,CZE,2017,0.4
+Czechia,CZE,2018,0.2
+Czechia,CZE,2019,0.2
+Czechia,CZE,2020,0.2
+Democratic Republic of Congo,COD,2017,96.4
+Democratic Republic of Congo,COD,2018,93.3
+Democratic Republic of Congo,COD,2019,90.7
+Democratic Republic of Congo,COD,2020,90
+Denmark,DNK,2017,0.2
+Denmark,DNK,2018,0.2
+Denmark,DNK,2019,0.4
+Denmark,DNK,2020,0.4
+Djibouti,DJI,2017,64.6
+Djibouti,DJI,2018,62.7
+Djibouti,DJI,2019,62
+Djibouti,DJI,2020,63.9
+Dominican Republic,DOM,2017,21.2
+Dominican Republic,DOM,2018,18.1
+Dominican Republic,DOM,2019,17.1
+Dominican Republic,DOM,2020,18.3
+East Asia and Pacific,,2017,24.6
+East Asia and Pacific,,2018,22.7
+East Asia and Pacific,,2019,21.3
+East Asia and Pacific,,2020,23.1
+Ecuador,ECU,2017,18.9
+Ecuador,ECU,2018,19.4
+Ecuador,ECU,2019,21.1
+Ecuador,ECU,2020,21.4
+Egypt,EGY,2017,76.2
+Egypt,EGY,2018,78.5
+Egypt,EGY,2019,75.9
+Egypt,EGY,2020,72.9
+Estonia,EST,2017,1
+Estonia,EST,2018,0.8
+Estonia,EST,2019,1.2
+Estonia,EST,2020,1.3
+Eswatini,SWZ,2017,74.8
+Eswatini,SWZ,2018,73
+Eswatini,SWZ,2019,72.3
+Eswatini,SWZ,2020,71.8
+Ethiopia,ETH,2017,88.3
+Ethiopia,ETH,2018,86.9
+Ethiopia,ETH,2019,86.4
+Ethiopia,ETH,2020,86.8
+Europe and Central Asia,,2017,4
+Europe and Central Asia,,2018,3.4
+Europe and Central Asia,,2019,3.5
+Europe and Central Asia,,2020,3.6
+Fiji,FJI,2017,51.5
+Fiji,FJI,2018,53.2
+Fiji,FJI,2019,60.3
+Fiji,FJI,2020,60.4
+Finland,FIN,2017,0.1
+Finland,FIN,2018,0.2
+Finland,FIN,2019,0.1
+Finland,FIN,2020,0.1
+France,FRA,2017,0.1
+France,FRA,2018,0.1
+France,FRA,2019,0.1
+France,FRA,2020,0.1
+Gabon,GAB,2017,36
+Gabon,GAB,2018,36.3
+Gabon,GAB,2019,36
+Gabon,GAB,2020,36.3
+Gambia,GMB,2017,69.2
+Gambia,GMB,2018,65.6
+Gambia,GMB,2019,63.8
+Gambia,GMB,2020,64
+Germany,DEU,2017,0.2
+Germany,DEU,2018,0.2
+Germany,DEU,2019,0.2
+Germany,DEU,2020,0.2
+Ghana,GHA,2017,64.4
+Ghana,GHA,2018,62.7
+Ghana,GHA,2019,60.6
+Ghana,GHA,2020,61.2
+Greece,GRC,2017,4.3
+Greece,GRC,2018,2.7
+Greece,GRC,2019,3.1
+Greece,GRC,2020,3.2
+Guinea,GIN,2017,94.3
+Guinea,GIN,2018,94.6
+Guinea,GIN,2019,94.6
+Guinea,GIN,2020,94.9
+Guinea-Bissau,GNB,2017,87.4
+Guinea-Bissau,GNB,2018,87.3
+Guinea-Bissau,GNB,2019,86.4
+Guinea-Bissau,GNB,2020,87.2
+Guyana,GUY,2017,47.8
+Guyana,GUY,2018,45.5
+Guyana,GUY,2019,42.9
+Guyana,GUY,2020,43
+Haiti,HTI,2017,82.7
+Haiti,HTI,2018,82.7
+Haiti,HTI,2019,84.6
+Haiti,HTI,2020,85.9
+High income,,2017,1.5
+High income,,2018,1.5
+High income,,2019,1.3
+High income,,2020,1.4
+Honduras,HND,2017,53.7
+Honduras,HND,2018,53.2
+Honduras,HND,2019,50.9
+Honduras,HND,2020,51.3
+Hungary,HUN,2017,3.3
+Hungary,HUN,2018,2.3
+Hungary,HUN,2019,1.9
+Hungary,HUN,2020,2
+Iceland,ISL,2017,0
+Iceland,ISL,2018,0
+Iceland,ISL,2019,0
+Iceland,ISL,2020,0
+India,IND,2017,74.9
+India,IND,2018,71.5
+India,IND,2019,69.4
+India,IND,2020,70.5
+Indonesia,IDN,2017,70.7
+Indonesia,IDN,2018,68.9
+Indonesia,IDN,2019,67.3
+Indonesia,IDN,2020,69.1
+Iran,IRN,2017,12
+Iran,IRN,2018,14
+Iran,IRN,2019,22.1
+Iran,IRN,2020,20.3
+Iraq,IRQ,2017,53.3
+Iraq,IRQ,2018,53.2
+Iraq,IRQ,2019,50.6
+Iraq,IRQ,2020,49.6
+Ireland,IRL,2017,0.3
+Ireland,IRL,2018,0.1
+Ireland,IRL,2019,0.1
+Ireland,IRL,2020,0.1
+Israel,ISR,2017,1.7
+Israel,ISR,2018,1.2
+Israel,ISR,2019,1
+Israel,ISR,2020,1
+Italy,ITA,2017,2.9
+Italy,ITA,2018,2.9
+Italy,ITA,2019,2.8
+Italy,ITA,2020,2.9
+Jamaica,JAM,2017,64.7
+Jamaica,JAM,2018,64.3
+Jamaica,JAM,2019,65
+Jamaica,JAM,2020,66.2
+Japan,JPN,2017,2.5
+Japan,JPN,2018,2.5
+Japan,JPN,2019,2.5
+Japan,JPN,2020,2.5
+Jordan,JOR,2017,15.8
+Jordan,JOR,2018,14.9
+Jordan,JOR,2019,14.2
+Jordan,JOR,2020,14.9
+Kazakhstan,KAZ,2017,1.5
+Kazakhstan,KAZ,2018,1.1
+Kazakhstan,KAZ,2019,1
+Kazakhstan,KAZ,2020,1.2
+Kenya,KEN,2017,83.5
+Kenya,KEN,2018,81.2
+Kenya,KEN,2019,80.7
+Kenya,KEN,2020,81.1
+Kyrgyzstan,KGZ,2017,56.6
+Kyrgyzstan,KGZ,2018,47.5
+Kyrgyzstan,KGZ,2019,45.3
+Kyrgyzstan,KGZ,2020,49.6
+Laos,LAO,2017,80.6
+Laos,LAO,2018,79.2
+Laos,LAO,2019,78.4
+Laos,LAO,2020,79.8
+Latin America and the Caribbean,,2017,22.4
+Latin America and the Caribbean,,2018,21.2
+Latin America and the Caribbean,,2019,21.3
+Latin America and the Caribbean,,2020,22.5
+Latvia,LVA,2017,3.4
+Latvia,LVA,2018,2.4
+Latvia,LVA,2019,1.7
+Latvia,LVA,2020,1.8
+Lesotho,LSO,2017,80.2
+Lesotho,LSO,2018,81
+Lesotho,LSO,2019,82
+Lesotho,LSO,2020,83.5
+Liberia,LBR,2017,97.1
+Liberia,LBR,2018,96.9
+Liberia,LBR,2019,96.7
+Liberia,LBR,2020,96.8
+Lithuania,LTU,2017,3.6
+Lithuania,LTU,2018,2.4
+Lithuania,LTU,2019,1.2
+Lithuania,LTU,2020,1.2
+Low income,,2017,90.2
+Low income,,2018,89
+Low income,,2019,88.2
+Low income,,2020,88.3
+Lower-middle income,,2017,71.5
+Lower-middle income,,2018,69.4
+Lower-middle income,,2019,68.4
+Lower-middle income,,2020,69.4
+Luxembourg,LUX,2017,0.4
+Luxembourg,LUX,2018,0.4
+Luxembourg,LUX,2019,0.1
+Luxembourg,LUX,2020,0.1
+Madagascar,MDG,2017,97.1
+Madagascar,MDG,2018,97.1
+Madagascar,MDG,2019,97
+Madagascar,MDG,2020,97
+Malawi,MWI,2017,95.5
+Malawi,MWI,2018,95.7
+Malawi,MWI,2019,96.3
+Malawi,MWI,2020,96.6
+Malaysia,MYS,2017,2.6
+Malaysia,MYS,2018,2.1
+Malaysia,MYS,2019,1.7
+Malaysia,MYS,2020,1.9
+Maldives,MDV,2017,4.2
+Maldives,MDV,2018,2.4
+Maldives,MDV,2019,1.1
+Maldives,MDV,2020,1.4
+Mali,MLI,2017,80.1
+Mali,MLI,2018,77.5
+Mali,MLI,2019,73.4
+Mali,MLI,2020,74.3
+Malta,MLT,2017,0.3
+Malta,MLT,2018,0.3
+Malta,MLT,2019,0.7
+Malta,MLT,2020,0.7
+Mauritania,MRT,2017,62.9
+Mauritania,MRT,2018,62.4
+Mauritania,MRT,2019,60.7
+Mauritania,MRT,2020,60.7
+Mauritius,MUS,2017,14.8
+Mauritius,MUS,2018,13.5
+Mauritius,MUS,2019,12.2
+Mauritius,MUS,2020,13.5
+Mexico,MEX,2017,26.1
+Mexico,MEX,2018,24.9
+Mexico,MEX,2019,23.7
+Mexico,MEX,2020,26.3
+Middle East and North Africa,,2017,38.7
+Middle East and North Africa,,2018,39.5
+Middle East and North Africa,,2019,40.1
+Middle East and North Africa,,2020,38.5
+Moldova,MDA,2017,5.9
+Moldova,MDA,2018,4.7
+Moldova,MDA,2019,5.8
+Moldova,MDA,2020,6.7
+Mongolia,MNG,2017,55.3
+Mongolia,MNG,2018,52.8
+Mongolia,MNG,2019,49.4
+Mongolia,MNG,2020,51.4
+Montenegro,MNE,2017,17.4
+Montenegro,MNE,2018,18.1
+Montenegro,MNE,2019,17.8
+Montenegro,MNE,2020,17.5
+Morocco,MAR,2017,18.9
+Morocco,MAR,2018,17.5
+Morocco,MAR,2019,16.7
+Morocco,MAR,2020,16.7
+Mozambique,MOZ,2017,91.3
+Mozambique,MOZ,2018,90.7
+Mozambique,MOZ,2019,90.9
+Mozambique,MOZ,2020,91.5
+Myanmar,MMR,2017,68.1
+Myanmar,MMR,2018,63.6
+Myanmar,MMR,2019,59.7
+Myanmar,MMR,2020,65.1
+Namibia,NAM,2017,54.4
+Namibia,NAM,2018,54.3
+Namibia,NAM,2019,55.5
+Namibia,NAM,2020,56.8
+Nepal,NPL,2017,86.8
+Nepal,NPL,2018,84.5
+Nepal,NPL,2019,83.3
+Nepal,NPL,2020,84
+Netherlands,NLD,2017,0.4
+Netherlands,NLD,2018,0.3
+Netherlands,NLD,2019,0.2
+Netherlands,NLD,2020,0.2
+Nicaragua,NIC,2017,32.2
+Nicaragua,NIC,2018,34.4
+Nicaragua,NIC,2019,35.5
+Nicaragua,NIC,2020,35.7
+Niger,NER,2017,91.1
+Niger,NER,2018,89.2
+Niger,NER,2019,88.5
+Niger,NER,2020,88.8
+Nigeria,NGA,2017,94.1
+Nigeria,NGA,2018,94.8
+Nigeria,NGA,2019,95.3
+Nigeria,NGA,2020,95.9
+North America,,2017,1.9
+North America,,2018,1.6
+North America,,2019,1.4
+North America,,2020,1.4
+North Macedonia,MKD,2017,21.8
+North Macedonia,MKD,2018,18.8
+North Macedonia,MKD,2019,17.5
+North Macedonia,MKD,2020,18
+Norway,NOR,2017,0.5
+Norway,NOR,2018,0.4
+Norway,NOR,2019,0.3
+Norway,NOR,2020,0.4
+Pakistan,PAK,2017,79.7
+Pakistan,PAK,2018,79
+Pakistan,PAK,2019,81.2
+Pakistan,PAK,2020,83.5
+Palestine,PSE,2017,25.4
+Palestine,PSE,2018,25.8
+Palestine,PSE,2019,25.4
+Palestine,PSE,2020,23.1
+Panama,PAN,2017,21.1
+Panama,PAN,2018,18.5
+Panama,PAN,2019,18
+Panama,PAN,2020,18.2
+Paraguay,PRY,2017,20.1
+Paraguay,PRY,2018,18.7
+Paraguay,PRY,2019,17.9
+Paraguay,PRY,2020,17.8
+Peru,PER,2017,23.7
+Peru,PER,2018,20.9
+Peru,PER,2019,20.6
+Peru,PER,2020,20.5
+Philippines,PHL,2017,71
+Philippines,PHL,2018,71
+Philippines,PHL,2019,68.6
+Philippines,PHL,2020,68.6
+Poland,POL,2017,1
+Poland,POL,2018,1.4
+Poland,POL,2019,0.8
+Poland,POL,2020,1
+Portugal,PRT,2017,1.1
+Portugal,PRT,2018,1.1
+Portugal,PRT,2019,0.5
+Portugal,PRT,2020,0.5
+Romania,ROU,2017,11.9
+Romania,ROU,2018,6.9
+Romania,ROU,2019,8.3
+Romania,ROU,2020,8.8
+Russia,RUS,2017,4
+Russia,RUS,2018,3.7
+Russia,RUS,2019,3.1
+Russia,RUS,2020,3.5
+Rwanda,RWA,2017,89
+Rwanda,RWA,2018,86.6
+Rwanda,RWA,2019,85.2
+Rwanda,RWA,2020,86.3
+Saint Lucia,LCA,2017,20.2
+Saint Lucia,LCA,2018,20.1
+Saint Lucia,LCA,2019,20.3
+Saint Lucia,LCA,2020,20.6
+Sao Tome and Principe,STP,2017,84.4
+Sao Tome and Principe,STP,2018,84.4
+Sao Tome and Principe,STP,2019,84.3
+Sao Tome and Principe,STP,2020,84.7
+Senegal,SEN,2017,53
+Senegal,SEN,2018,47.3
+Senegal,SEN,2019,45.5
+Senegal,SEN,2020,46
+Serbia,SRB,2017,29
+Serbia,SRB,2018,14.9
+Serbia,SRB,2019,16.3
+Serbia,SRB,2020,16.3
+Seychelles,SYC,2017,8.8
+Seychelles,SYC,2018,7.8
+Seychelles,SYC,2019,7.4
+Seychelles,SYC,2020,6.8
+Sierra Leone,SLE,2017,91.1
+Sierra Leone,SLE,2018,91.1
+Sierra Leone,SLE,2019,89.1
+Sierra Leone,SLE,2020,89.2
+Slovakia,SVK,2017,2
+Slovakia,SVK,2018,2.4
+Slovakia,SVK,2019,1.2
+Slovakia,SVK,2020,1.2
+Slovenia,SVN,2017,0.1
+Slovenia,SVN,2018,0.1
+Slovenia,SVN,2019,0.1
+Slovenia,SVN,2020,0.1
+South Africa,ZAF,2017,65.2
+South Africa,ZAF,2018,64.8
+South Africa,ZAF,2019,65
+South Africa,ZAF,2020,65.2
+South Asia,,2017,75.6
+South Asia,,2018,72.5
+South Asia,,2019,71.1
+South Asia,,2020,72.3
+South Korea,KOR,2017,1.7
+South Korea,KOR,2018,1.7
+South Korea,KOR,2019,1.5
+South Korea,KOR,2020,1.7
+Spain,ESP,2017,1.9
+Spain,ESP,2018,2.1
+Spain,ESP,2019,1.9
+Spain,ESP,2020,2
+Sri Lanka,LKA,2017,52.3
+Sri Lanka,LKA,2018,48.8
+Sri Lanka,LKA,2019,45.3
+Sri Lanka,LKA,2020,49
+Sub-Saharan Africa,,2017,86.2
+Sub-Saharan Africa,,2018,85.1
+Sub-Saharan Africa,,2019,85
+Sub-Saharan Africa,,2020,85.3
+Sudan,SDN,2017,86.3
+Sudan,SDN,2018,89.1
+Sudan,SDN,2019,92.1
+Sudan,SDN,2020,91.8
+Suriname,SUR,2017,57.6
+Suriname,SUR,2018,55.5
+Suriname,SUR,2019,56.1
+Suriname,SUR,2020,58.8
+Sweden,SWE,2017,0.5
+Sweden,SWE,2018,1.2
+Sweden,SWE,2019,0.5
+Sweden,SWE,2020,0.6
+Switzerland,CHE,2017,0
+Switzerland,CHE,2018,0
+Switzerland,CHE,2019,0
+Switzerland,CHE,2020,0
+Taiwan,TWN,2017,0.2
+Tajikistan,TJK,2017,42.9
+Tajikistan,TJK,2018,40.1
+Tajikistan,TJK,2019,42
+Tajikistan,TJK,2020,42.1
+Tanzania,TZA,2017,88.7
+Tanzania,TZA,2018,88.3
+Tanzania,TZA,2019,87.4
+Tanzania,TZA,2020,87.6
+Thailand,THA,2017,17.5
+Thailand,THA,2018,17.9
+Thailand,THA,2019,16
+Thailand,THA,2020,17
+Trinidad and Tobago,TTO,2017,10.7
+Trinidad and Tobago,TTO,2018,10.8
+Trinidad and Tobago,TTO,2019,11
+Trinidad and Tobago,TTO,2020,11.6
+Tunisia,TUN,2017,21.8
+Tunisia,TUN,2018,21.2
+Tunisia,TUN,2019,20.8
+Tunisia,TUN,2020,20.3
+Uganda,UGA,2017,84.8
+Uganda,UGA,2018,83.5
+Uganda,UGA,2019,82.7
+Uganda,UGA,2020,82.2
+United Arab Emirates,ARE,2017,0
+United Arab Emirates,ARE,2018,0
+United Arab Emirates,ARE,2019,0
+United Arab Emirates,ARE,2020,0
+United Kingdom,GBR,2017,0.5
+United Kingdom,GBR,2018,0.5
+United Kingdom,GBR,2019,0.5
+United Kingdom,GBR,2020,0.5
+United States,USA,2017,2
+United States,USA,2018,1.7
+United States,USA,2019,1.5
+United States,USA,2020,1.5
+Upper-middle income,,2017,16.5
+Upper-middle income,,2018,14.5
+Upper-middle income,,2019,13.7
+Upper-middle income,,2020,15.2
+Uruguay,URY,2017,2.7
+Uruguay,URY,2018,2.9
+Uruguay,URY,2019,3.2
+Uruguay,URY,2020,3.6
+Vietnam,VNM,2017,32.4
+Vietnam,VNM,2018,29.4
+Vietnam,VNM,2019,26.8
+Vietnam,VNM,2020,30
+World,OWID_WRL,2017,42.9
+World,OWID_WRL,2018,41.5
+World,OWID_WRL,2019,40.9
+World,OWID_WRL,2020,42
+Zambia,ZMB,2017,87.6
+Zambia,ZMB,2018,87.3
+Zambia,ZMB,2019,87.9
+Zambia,ZMB,2020,88
+Zimbabwe,ZWE,2017,84.1
