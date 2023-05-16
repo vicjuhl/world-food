@@ -1,0 +1,7 @@
+name: world-food
+channels:
+  - defaults
+dependencies:
+  - python=3.11.3
+  # - pip:
+  #     - clean-text==0.6.0 
