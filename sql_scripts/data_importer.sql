@@ -1,13 +1,44 @@
+DROP TABLE IF EXISTS Countries;
+
 DROP TABLE IF EXISTS Affordability;
 
-CREATE TABLE Affordability(name text, iso text, year integer, affordability float);
+DROP TABLE IF EXISTS BMI;
 
-start transaction;
-/*-h host_name -U user_name -d database_name -c " */
+DROP TABLE IF EXISTS Waste;
 
-copy Affordability 
-FROM '\Users\45609\OneDrive\Desktop\Filer\KU\DIS\world-food\raw_data\food-prices.csv' 
-WITH CSV HEADER DELIMITER ','
-;
 
-/* " */ 
+CREATE TABLE Countries(
+    iso integer, 
+    iso_alpha text,
+    population integer,
+    count_name text,
+    subcontinent text,
+    continent float                      /* Could perhaps be changed to a integer (as index for a chronological stage number) */
+);
+
+CREATE TABLE Affordability(
+    country text,                  /* Should be dropped since we use iso as foreign key */
+    iso text, 
+    year integer, 
+    affordable float
+);
+
+CREATE TABLE BMI(
+    iso text, 
+    sex text, 
+    year integer, 
+    mean_BMI_urban float,
+    mean_BMI_rural float
+);
+
+CREATE TABLE Waste(
+    iso text, 
+    year integer, 
+    commodity text,
+    loss_pct float, 
+    stage text                      /* Could perhaps be changed to a integer (as index for a chronological stage number) */
+);
+
+
+\copy Affordability FROM 'raw_data\food-prices.csv' WITH CSV HEADER DELIMITER ',';
+
