@@ -16,3 +16,9 @@ With conda installed, please do the following to intall environment:
 
     To update existing conda env from env file:
     conda env create -f environment.yml --force
+
+
+
+# Loading SQL scripts:
+1. Open a terminal and navigate to the world-food folder
+2. Run the following script: psql -U postgres -d worldfood -f sql_scripts\data_importer.sql -p 5432
