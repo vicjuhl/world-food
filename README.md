@@ -15,4 +15,4 @@ With conda installed, please do the following to intall environment:
     conda env create -f environment.yml
 
     To update existing conda env from env file:
-    conda env update -f environment.yml --prune
+    conda env create -f environment.yml --force
