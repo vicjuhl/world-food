@@ -55,6 +55,7 @@ CREATE TABLE BMI(
     loss_pct float, 
     stage text          );              Could perhaps be changed to a integer (as index for a chronological stage number) */
 
+/*
 CREATE TABLE Waste(
     m49_code text,
     country text,
@@ -75,9 +76,10 @@ CREATE TABLE Waste(
     url text,
     notes text
 );
+*/
 
 \copy Affordability FROM 'raw_data/food-prices.csv' WITH CSV HEADER DELIMITER ',';
 
 \copy BMI FROM 'raw_data/NCD_RisC_Nature_2019_age_standardised_country.csv' WITH CSV HEADER DELIMITER ',';
 
-\copy Waste FROM 'raw_data/food-loss-waste-Data.csv' WITH CSV HEADER DELIMITER ',';
+-- \copy Waste FROM 'raw_data/food-loss-waste-Data.csv' WITH CSV HEADER DELIMITER ',';
