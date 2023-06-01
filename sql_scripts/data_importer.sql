@@ -76,8 +76,8 @@ CREATE TABLE Waste(
     notes text
 );
 
-\copy Affordability FROM 'raw_data\food-prices.csv' WITH CSV HEADER DELIMITER ',';
+\copy Affordability FROM 'raw_data/food-prices.csv' WITH CSV HEADER DELIMITER ',';
 
-\copy BMI FROM 'raw_data\NCD_RisC_Nature_2019_age_standardised_country.csv' WITH CSV HEADER DELIMITER ',';
+\copy BMI FROM 'raw_data/NCD_RisC_Nature_2019_age_standardised_country.csv' WITH CSV HEADER DELIMITER ',';
 
-\copy Waste FROM 'raw_data\food-loss-waste-Data.csv' WITH CSV HEADER DELIMITER ',';
+\copy Waste FROM 'raw_data/food-loss-waste-Data.csv' WITH CSV HEADER DELIMITER ',';
