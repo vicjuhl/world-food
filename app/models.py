@@ -1,12 +1,13 @@
 from app import conn
 
-def fetch_test():
+def fetch_test(fname: str):
     cur = conn.cursor()
     sql = """
         SELECT *
         FROM Affordability
+        WHERE country = %s
     """
-    cur.execute(sql)
+    cur.execute(sql, (fname, ))
     result = cur.fetchone()
     cur.close()
-    return str(result[0])
+    return result
