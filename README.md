@@ -18,7 +18,7 @@ With conda installed, please do the following to install environment:
     conda env create -f environment.yml --force
 
 # Database setup
-1. Create a PostgreSQL database named worldfood on your desired server.
+1. Create a PostgreSQL database named worldfood on your desired server, using port 5432.
 2. Open a terminal and navigate to the world-food/ directory.
 3. Run the following command:
-    psql -U postgres -d worldfood -f SQL_scripts\data_importer.sql -p [your server port number here]
+    psql -U postgres -d worldfood -f SQL_scripts/data_importer.sql -p 5432
