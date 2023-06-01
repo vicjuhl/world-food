@@ -3,5 +3,6 @@ channels:
   - defaults
 dependencies:
   - python=3.11.3
-  # - pip:
-  #     - clean-text==0.6.0 
+  - pip:
+      - flask==2.3.2
+      - psycopg2-binary==2.9.6
