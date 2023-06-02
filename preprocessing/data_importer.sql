@@ -10,41 +10,24 @@ DROP TABLE IF EXISTS Waste;
 CREATE TABLE Countries(
     iso integer, 
     iso_alpha text,
-    population integer,
+    population_ integer,
     count_name text,
     subcontinent text,
     continent text
 );
 
 CREATE TABLE Affordability(
-    country text,                  /* Should be dropped since we use iso as foreign key */
-    iso_alpha text, 
-    year integer, 
-    affordable float
+    iso_alpha text,
+    year_ integer,
+    unaffordable float
 );
 
-/* CREATE TABLE BMI(
-    iso_alpha text, 
-    sex text, 
-    year integer, 
-    mean_BMI_urban float,
-    mean_BMI_rural float
-); */
-
 CREATE TABLE BMI(
-    Country_Region_World text,
-    ISO text,
-    Sex text,
-    Year text,
-    Mean_BMI_urban text,
-    Mean_BMI_urban_lower_95 text,
-    Mean_BMI_urban_upper_95 text,
-    Mean_BMI_rural text,
-    Mean_BMI_rural_lower_95 text,
-    Mean_BMI_rural_upper_95 text,
-    Mean_BMI_urban_rural_diff text,
-    Mean_BMI_urban_rural_diff_lower_95 text,
-    Mean_BMI_urban_rural_diff_upper_95 text
+    iso_alpha char(3),
+    sex varchar(5),
+    year_ integer,
+    mean_urban float,
+    mean_rural float
 );
 
 /* CREATE TABLE Waste(
@@ -78,8 +61,7 @@ CREATE TABLE Waste(
 );
 */
 
-\copy Affordability FROM 'raw_data/food-prices.csv' WITH CSV HEADER DELIMITER ',';
+\copy Affordability FROM 'data_cleaned/unaffordability_cleaned.csv' WITH CSV HEADER DELIMITER ',';
 
-\copy BMI FROM 'raw_data/NCD_RisC_Nature_2019_age_standardised_country.csv' WITH CSV HEADER DELIMITER ',';
+\copy BMI FROM 'data_cleaned/bmi_cleaned.csv' WITH CSV HEADER DELIMITER ',';
 
--- \copy Waste FROM 'raw_data/food-loss-waste-Data.csv' WITH CSV HEADER DELIMITER ',';

@@ -3,6 +3,7 @@ channels:
   - defaults
 dependencies:
   - python=3.11.3
+  - pandas=1.5.3
   - pip:
       - flask==2.3.2
       - psycopg2-binary==2.9.6
