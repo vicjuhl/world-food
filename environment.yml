@@ -6,4 +6,5 @@ dependencies:
   - pandas=1.5.3
   - pip:
       - flask==2.3.2
+      - matplotlib==3.7.1
       - psycopg2-binary==2.9.6
