@@ -4,16 +4,14 @@ DROP TABLE IF EXISTS Affordability;
 
 DROP TABLE IF EXISTS BMI;
 
-DROP TABLE IF EXISTS Waste;
+-- DROP TABLE IF EXISTS Waste;
 
 
 CREATE TABLE Countries(
-    iso integer, 
-    iso_alpha text,
-    population_ integer,
-    count_name text,
-    subcontinent text,
-    continent text
+    iso_alpha char(3),
+    country_name text,
+    sub_region text,
+    region text
 );
 
 CREATE TABLE Affordability(
@@ -61,7 +59,7 @@ CREATE TABLE Waste(
 );
 */
 
+\copy Countries FROM 'data_cleaned/countries_cleaned.csv' WITH CSV HEADER DELIMITER ',';
 \copy Affordability FROM 'data_cleaned/unaffordability_cleaned.csv' WITH CSV HEADER DELIMITER ',';
-
 \copy BMI FROM 'data_cleaned/bmi_cleaned.csv' WITH CSV HEADER DELIMITER ',';
 
