@@ -37,8 +37,14 @@ print("Copied BMI")
 # Countries
 print("Copying countries...")
 ctr_path = in_dir / "countries.csv"
-ctr = pd.read_csv(ctr_path)
-ctr = ctr[["alpha-3", "name", "sub-region", "region"]]
-ctr.rename(columns={"alpha-3": "iso_alpha", "name": "country_name", "sub-region": "sub_region"}, inplace=True)
+ctr = pd.read_csv(ctr_path, dtype=str)
+ctr = ctr[["alpha-3", "name", "sub-region", "sub-region-code", "region", "region-code"]]
+ctr.rename(columns={
+    "alpha-3": "iso_alpha",
+    "name": "country_name",
+    "sub-region": "sub_region",
+    "sub-region-code": "sub_region_code",
+    "region-code": "region_code"
+}, inplace=True)
 ctr.to_csv(out_dir / "countries_cleaned.csv", index=False)
 print("Copied countries")

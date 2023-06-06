@@ -6,12 +6,15 @@ DROP TABLE IF EXISTS BMI;
 
 -- DROP TABLE IF EXISTS Waste;
 
+DROP TABLE IF EXISTS SubRegionPresets;
 
 CREATE TABLE Countries(
     iso_alpha char(3),
     country_name text,
     sub_region text,
-    region text
+    sub_region_code char(3),
+    region text,
+    region_code char(3)
 );
 
 CREATE TABLE Affordability(
@@ -27,6 +30,20 @@ CREATE TABLE BMI(
     mean_urban float,
     mean_rural float
 );
+
+CREATE TABLE SubRegionPresets(
+    pName text,
+    subRegionCode char(3)
+);
+
+INSERT INTO SubRegionPresets
+    (pName, subRegionCode)
+VALUES
+    ('Asia', '030'),
+    ('Asia', '145'),
+    ('Asia', '034'),
+    ('Asia', '035'),
+    ('Asia', '143');
 
 /* CREATE TABLE Waste(
     iso integer,
