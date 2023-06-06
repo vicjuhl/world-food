@@ -18,7 +18,7 @@
                 id="{{ subregion[0] }}"
                 name="subregions"
                 value="{{ subregion[0] }}"
-                {{ 'checked="checked"' if subregion[1] else "" }}>
+                {{ "checked" if subregion[1] else "" }}>
             <label for="{{ subregion }}">{{ subregion[0] }}</label>
         </div>
         {% endfor %}
