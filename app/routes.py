@@ -6,9 +6,9 @@ Router = Blueprint('Router', __name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html", sub_regions=get_all_regions())
+    return render_template("index.html", subregions=get_all_regions())
 
 @app.route('/submit', methods=["POST"])
 def on_submit():
-    update_plot(request.form["subregion"])
+    update_plot(request.form.getlist("subregions"))
     return render_template('submitted.html')

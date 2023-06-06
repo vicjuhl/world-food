@@ -16,9 +16,7 @@ def fetch_test(fname: str):
     cur.close()
     return result
 
-def fetch_region(subregion: str):
-    
-    print("generating results...")
+def fetch_region(subregions: list[str]):
     cur = conn.cursor()
     sql = """
         SELECT
@@ -30,29 +28,25 @@ def fetch_region(subregion: str):
             USING (iso_alpha)
         JOIN affordability
             USING (iso_alpha)
-        WHERE sub_region = %s
+        WHERE sub_region IN %s
         GROUP BY country_name, sub_region
     """
-    cur.execute(sql, (subregion, ))
+    cur.execute(sql, [tuple(subregions)])
     result = cur.fetchall()
     cur.close()
     return result
 
-def get_plot(subregion: str):
+def get_plot(subregions: list[str]):
     """Make scatterplot and return its figure."""    
-    print("getting results ...")
-    result = fetch_region(subregion)
+    result = fetch_region(subregions)
     subregion, affordability, bmi_or_waste = zip(*result)
-    print("creating plot...")
     plt.scatter(affordability, bmi_or_waste) # TODO: add colorscheme to sub-regions
     plt.xlabel('Affordability')
     plt.ylabel('BMI or Waste')
     return plt
 
-def update_plot(subregion) -> None:
-    print("updating plot...")
-    plot = get_plot(subregion)
-    print("saving plot")
+def update_plot(subregions: list[str]) -> None:
+    plot = get_plot(subregions)
     plot.savefig(plot_dir / 'plot.png')
     plot.close()
 

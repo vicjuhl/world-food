@@ -8,23 +8,19 @@
 <body>
 
 <form action="/submit" method="POST">
-    <label for="country_name">Country name:</label><br>
-    <input type="text" id="country_name" name="country_name"><br><br>
-    <label for="subregion">Sub-region:</label><br>
-    <input type="text" id="subregion" name="subregion"><br><br>
-
-
     <fieldset>
         <legend>Choose your sub-regions:</legend>
         <div id="subRegionList"></div>
-            {% for sub_region in sub_regions %}
+            {% for subregion in subregions %}
             <div>
-                <input type="checkbox" id="{{ sub_region }}" name="{{ sub_region }}" checked>
-                <label for="{{ sub_region }}">{{ sub_region }}</label>
-            </div>
+                <input
+                    type="checkbox"
+                    id="{{ subregion }}"
+                    name="subregions"
+                    value="{{ subregion }}" checked>
+                <label for="{{ subregion }}">{{ subregion }}</label>
             {% endfor %}
     </fieldset>
-
 
     <label for="views">Choose your view to compare against affordability:</label>
     <select name="views" id="views">
@@ -33,15 +29,7 @@
     </select>
     <br><br>
 
-    <label>Would you like to see view for country or sub-region?</label><br><br>
-    
-        <input type="radio" id="country" name="option" value="country">
-        <label for="country">Country</label>
-        <input type="radio" id="subregion" name="option" value="subregion">
-        <label for="subregion">Sub-region</label><br>
-
-    <br><br>
-        <button><a>Let's-a-go</a></button><br>
+    <button><a>Let's-a-go</a></button><br>
 </form>
 
 </body>
