@@ -17,7 +17,7 @@
                     type="checkbox"
                     id="{{ subregion }}"
                     name="subregions"
-                    value="{{ subregion }}" checked>
+                    value="{{ subregion }}">
                 <label for="{{ subregion }}">{{ subregion }}</label>
             {% endfor %}
     </fieldset>
@@ -30,6 +30,7 @@
     <br><br>
 
     <button><a>Let's-a-go</a></button><br>
+    {% block content %}{% endblock %}
 </form>
 
 </body>

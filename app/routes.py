@@ -11,4 +11,4 @@ def index():
 @app.route('/submit', methods=["POST"])
 def on_submit():
     update_plot(request.form.getlist("subregions"))
-    return render_template('submitted.html')
+    return render_template('submitted.html', subregions=get_all_regions())
