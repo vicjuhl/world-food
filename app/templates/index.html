@@ -14,6 +14,18 @@
     <input type="text" id="subregion" name="subregion"><br><br>
 
 
+    <fieldset>
+        <legend>Choose your sub-regions:</legend>
+        <div id="subRegionList"></div>
+            {% for sub_region in sub_regions %}
+            <div>
+                <input type="checkbox" id="{{ sub_region }}" name="{{ sub_region }}" checked>
+                <label for="{{ sub_region }}">{{ sub_region }}</label>
+            </div>
+            {% endfor %}
+    </fieldset>
+
+
     <label for="views">Choose your view to compare against affordability:</label>
     <select name="views" id="views">
         <option value="bmi">BMI</option>

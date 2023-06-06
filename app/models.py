@@ -55,3 +55,15 @@ def update_plot(subregion) -> None:
     print("saving plot")
     plot.savefig(plot_dir / 'plot.png')
     plot.close()
+
+def get_all_regions():
+    cur = conn.cursor()
+    sql = """
+        SELECT DISTINCT sub_region
+        FROM Countries
+    """
+    cur.execute(sql)
+    result = cur.fetchall()
+    cur.close()
+    result_list = [elm[0] for elm in result]
+    return result_list
