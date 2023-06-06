@@ -11,15 +11,17 @@
     <fieldset>
         <legend>Choose your sub-regions:</legend>
         <div id="subRegionList"></div>
-            {% for subregion in subregions %}
-            <div>
-                <input
-                    type="checkbox"
-                    id="{{ subregion }}"
-                    name="subregions"
-                    value="{{ subregion }}">
-                <label for="{{ subregion }}">{{ subregion }}</label>
-            {% endfor %}
+        {% for subregion in subregions.items() %}
+        <div>
+            <input
+                type="checkbox"
+                id="{{ subregion[0] }}"
+                name="subregions"
+                value="{{ subregion[0] }}"
+                {{ 'checked="checked"' if subregion[1] else "" }}>
+            <label for="{{ subregion }}">{{ subregion[0] }}</label>
+        </div>
+        {% endfor %}
     </fieldset>
 
     <label for="views">Choose your view to compare against affordability:</label>

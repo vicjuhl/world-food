@@ -1,14 +1,23 @@
 from flask import render_template, request, Blueprint
-from app.models import fetch_test, fetch_region, update_plot, get_all_regions
+from app.models import update_plot, get_all_regions
 from app import app
 
 Router = Blueprint('Router', __name__)
 
+subregions_state = {region: False for region in get_all_regions()}
+
+def update_subregions(checked_subs: list[str]):
+    """Set and remember values of subregion checkboxes."""
+    for sub in subregions_state.keys():
+        subregions_state[sub] = sub in checked_subs
+
 @app.route("/")
 def index():
-    return render_template("index.html", subregions=get_all_regions())
+    return render_template("index.html", subregions=subregions_state)
 
 @app.route('/submit', methods=["POST"])
 def on_submit():
-    update_plot(request.form.getlist("subregions"))
-    return render_template('submitted.html', subregions=get_all_regions())
+    checked_subs = request.form.getlist("subregions")
+    update_subregions(checked_subs)
+    update_plot(checked_subs)
+    return render_template('submitted.html', subregions=subregions_state)
