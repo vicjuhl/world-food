@@ -34,7 +34,6 @@ CREATE TABLE BMI(
 CREATE TABLE SubRegionPresets(
     pName text,
     subRegionCode char(3)
-    PRIMARY KEY pName
 );
 
 INSERT INTO SubRegionPresets
