@@ -1,5 +1,12 @@
 body {
     text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-   background-color: white;
+   background-color: rgb(247, 244, 244);
     }
+
+.column-layout {
+  display: flex;
+  flex-direction: column;
+  column-count: 2;
+  column-gap: 20px;
+}

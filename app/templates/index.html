@@ -1,7 +1,7 @@
 <!doctype html>
 
 
-<head><title>Test</title>
+<head><title>Food Affordability</title>
     <meta charset=utf-8>
     <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
@@ -10,9 +10,9 @@
 <form action="/submit" method="POST">
     <fieldset>
         <legend>Choose your sub-regions:</legend>
-        <div id="subRegionList"></div>
+        <div id="subRegionList" style="column-count: 2; column-gap: 20px;"></div>
         {% for subregion in subregions.items() %}
-        <div>
+        <div style="break-inside: avoid;">
             <input
                 type="checkbox"
                 id="{{ subregion[0] }}"
