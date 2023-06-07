@@ -6,20 +6,29 @@
 </head>
 <body>
 
+<form action="/load" method="POST">
+    <select name="presets" id="presets">
+        {% for preset_name in preset_names %}
+            <option value="{{ preset_name }}" >{{preset_name}}</option>
+        {% endfor %}
+    </select>
+    <button><a>Load preset</a></button><br><br>
+</form>
+
 <form action="/submit" method="POST">
     <fieldset>
         <legend>Choose your sub-regions:</legend>
         <div id="subRegionList" style="column-count: 2; column-gap: 20px;"></div>
         {% for subregion in subregions.items() %}
-        <div style="break-inside: avoid;">
-            <input
-                type="checkbox"
-                id="{{ subregion[0] }}"
-                name="subregions"
-                value="{{ subregion[0] }}"
-                {{ "checked" if subregion[1] else "" }}>
-            <label for="{{ subregion }}">{{ subregion[0] }}</label>
-        </div>
+            <div style="break-inside: avoid;">
+                <input
+                    type="checkbox"
+                    id="{{ subregion[0] }}"
+                    name="subregions"
+                    value="{{ subregion[0] }}"
+                    {{ "checked" if subregion[1] else "" }}>
+                <label for="{{ subregion }}">{{ subregion[0] }}</label>
+            </div>
         {% endfor %}
     </fieldset>
 
@@ -30,7 +39,7 @@
     </select>
     <br><br>
 
-    <button><a>Let's-a-go</a></button><br>
+    <button><a>View selected data</a></button><br>
     {% block content %}{% endblock %}
 </form>
 
