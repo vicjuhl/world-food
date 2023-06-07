@@ -34,7 +34,6 @@ CREATE TABLE BMI(
 CREATE TABLE SubRegionPresets(
     pName text,
     subRegionCode char(3)
-    PRIMARY KEY pName
 );
 
 INSERT INTO SubRegionPresets
@@ -45,6 +44,16 @@ VALUES
     ('Asia', '034'),
     ('Asia', '035'),
     ('Asia', '143');
+
+
+INSERT INTO SubRegionPresets
+    (pName, subRegionCode)
+VALUES
+    ('Europe', '155'),
+    ('Europe', '154'),
+    ('Europe', '039'),
+    ('Europe', '151');
+
 
 /* CREATE TABLE Waste(
     iso integer,
