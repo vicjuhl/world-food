@@ -13,7 +13,8 @@
             <option value="{{ preset_name }}" >{{preset_name}}</option>
         {% endfor %}
     </select>
-    <button><a>Load preset</a></button><br><br>
+    <button><a>Load preset</a></button>
+    <button formaction="/delete"><a>Delete preset</a></button><br><br>
 </form>
 
 <form action="/submit" method="POST">

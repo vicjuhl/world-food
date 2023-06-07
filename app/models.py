@@ -88,6 +88,17 @@ def save_preset(preset_name: str, checked_subs: list[str]) -> None:
     conn.commit()
     cur.close()
 
+def delete_preset(preset_name: str) -> None:
+    cur = conn.cursor()
+    sql = """
+        DELETE
+        FROM subregionpresets
+        WHERE pName = %s;
+    """
+    cur.execute(sql, (preset_name, ))
+    conn.commit()
+    cur.close()
+
 def get_plot(subregions: list[str]):
     """Make scatterplot and return its figure."""    
     result = fetch_regions_data(subregions)

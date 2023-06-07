@@ -4,7 +4,8 @@ from app.models import (
     get_all_regions,
     get_all_preset_names,
     get_preset,
-    save_preset
+    save_preset,
+    delete_preset
 )
 from app import app
 from app.utils.exceptions import NoDataException
@@ -47,6 +48,26 @@ def on_load():
         state.update_subregions(chosen_preset["sub_regions"])
     return render("index.html")
 
+@app.route('/save', methods=['POST'])
+def on_save():
+    checked_subs = request.form.getlist('subregions')
+    preset_name  = request.form.get("preset_input")
+    state.update_subregions(checked_subs)
+    if checked_subs != []:
+        save_preset(preset_name, checked_subs)
+        state.update_presets_names()
+        return render('saved_preset.html')
+    else:
+        return render('no_preset_saved.html')
+
+@app.route("/delete", methods=["POST"])
+def on_delete():
+    p_name = request.form.get("presets")
+    if p_name != "":
+        delete_preset(p_name)
+    state.update_presets_names()
+    return render("index.html")
+
 @app.route('/submit', methods=["POST"])
 def on_submit():
     checked_subs = request.form.getlist("subregions")
@@ -62,13 +83,4 @@ def on_submit():
         except NoDataException:
             pass
     return render("no_countries.html")
-
-@app.route('/save', methods=['POST'])
-def on_save():
-    checked_subs = request.form.getlist('subregions')
-    preset_name  = request.form.get("preset_input")
-    state.update_subregions(checked_subs)
-    save_preset(preset_name, checked_subs)
-    state.update_presets_names()
-    return render('saved_preset.html')
 
