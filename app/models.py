@@ -84,12 +84,12 @@ def get_plot(subregions: list[str]):
         "Polynesia": 'plum'
         }
 
-    ax.scatter(df['affordability'], df['bmi_or_waste'], c=df['subregion'].map(colors))
+    ax.scatter(df['affordability'], df['bmi_or_waste'], c = df['subregion'].map(colors))
     
     legend_labels = list(colors.keys())
-    legend_handles = [plt.Line2D([0], [0], marker='o', color='w', label=label, markerfacecolor=color, markersize=10)
-                      for label, color in colors.items()]
-    ax.legend(handles=legend_handles, labels=legend_labels, loc='upper right') #TODO: improve legend to only display subregions chosen (without mismatching colors)
+    legend_handles = [plt.Line2D([0], [0], marker='o', color='w', label=label, markerfacecolor=colors[label], markersize=10)
+                      for label in df['subregion'].drop_duplicates()]
+    ax.legend(handles=legend_handles, labels=legend_labels, loc='upper right')
 
     plt.xlabel('Affordability')
     plt.ylabel('BMI or Waste')
