@@ -1,6 +1,7 @@
 from flask import render_template, request, Blueprint
 from app.models import update_plot, get_all_regions
 from app import app
+from app.utils.exceptions import NoDataException
 
 Router = Blueprint('Router', __name__)
 
@@ -19,5 +20,10 @@ def index():
 def on_submit():
     checked_subs = request.form.getlist("subregions")
     update_subregions(checked_subs)
-    update_plot(checked_subs)
-    return render_template('submitted.html', subregions=subregions_state)
+    if checked_subs != []:
+        try:
+            update_plot(checked_subs)
+            return render_template('submitted.html', subregions=subregions_state)
+        except NoDataException:
+            pass
+    return render_template('no_countries.html', subregions=subregions_state)

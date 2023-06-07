@@ -2,19 +2,8 @@ from app import conn, plot_dir
 import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
+from app.utils.exceptions import NoDataException
 matplotlib.use('Agg')
-
-def fetch_test(fname: str):
-    cur = conn.cursor()
-    sql = """
-        SELECT *
-        FROM Affordability
-        WHERE country = %s
-    """
-    cur.execute(sql, (fname, ))
-    result = cur.fetchone()
-    cur.close()
-    return result
 
 def get_all_regions():
     cur = conn.cursor()
@@ -31,7 +20,7 @@ def get_all_regions():
     result_list = [elm[0] for elm in result]
     return result_list
 
-def fetch_region(subregions: list[str]):
+def fetch_regions_data(subregions: list[str]):
     cur = conn.cursor()
     sql = """
         SELECT sub_region, unaf_avg, bmi_avg
@@ -56,8 +45,11 @@ def fetch_region(subregions: list[str]):
 
 def get_plot(subregions: list[str]):
     """Make scatterplot and return its figure."""    
-    result = fetch_region(subregions)
-    subregion, affordability, bmi_or_waste = zip(*result)
+    result = fetch_regions_data(subregions)
+    try:
+        subregion, affordability, bmi_or_waste = zip(*result)
+    except:
+        raise NoDataException
 
     df = pd.DataFrame(dict(subregion=subregion, affordability = affordability, bmi_or_waste = bmi_or_waste))
     chosen_subregions = df['subregion'].drop_duplicates()
