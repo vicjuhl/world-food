@@ -48,6 +48,7 @@ def get_all_preset_names() -> list[str]:
     sql = """
         SELECT DISTINCT pName
         FROM SubRegionPresets
+        ORDER BY pName
     """
     cur.execute(sql)
     p_names = cur.fetchall()
@@ -68,6 +69,21 @@ def get_preset(preset_name: str) -> dict[str, list[str]]:
     result = {"sub_regions": [reg[0] for reg in subregions]}
     cur.close()
     return result
+
+def save_preset(preset_name: str, checked_subs: list[str]):
+    cur = conn.cursor()
+    
+    values = preset_name , checked_subs                     # unfinished
+    sql = """
+        INSERT INTO SubRegionPresets
+            (pName, subRegionCode)
+        VALUES "
+    """
+    # cursor.mogrify() to insert multiple values
+    args = ','.join(cur.mogrify("(%s,%s)", i).decode('utf-8') # unfinished
+                    for i in values)
+
+    cur.execute(sql + (args))
 
 def get_plot(subregions: list[str]):
     """Make scatterplot and return its figure."""    
