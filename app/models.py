@@ -60,6 +60,7 @@ def get_plot(subregions: list[str]):
     subregion, affordability, bmi_or_waste = zip(*result)
 
     df = pd.DataFrame(dict(subregion=subregion, affordability = affordability, bmi_or_waste = bmi_or_waste))
+    chosen_subregions = df['subregion'].drop_duplicates()
 
     fig, ax = plt.subplots(figsize=(14, 8))
 
@@ -86,12 +87,12 @@ def get_plot(subregions: list[str]):
 
     ax.scatter(df['affordability'], df['bmi_or_waste'], c = df['subregion'].map(colors))
     
-    legend_labels = list(colors.keys())
+    legend_labels = list(chosen_subregions)
     legend_handles = [plt.Line2D([0], [0], marker='o', color='w', label=label, markerfacecolor=colors[label], markersize=10)
-                      for label in df['subregion'].drop_duplicates()]
+                      for label in chosen_subregions]
     ax.legend(handles=legend_handles, labels=legend_labels, loc='upper right')
 
-    plt.xlabel('Affordability')
+    plt.xlabel('Affordability in %')
     plt.ylabel('BMI or Waste')
     plt.tight_layout()
     return plt
