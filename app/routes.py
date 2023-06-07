@@ -12,63 +12,63 @@ from app.utils.exceptions import NoDataException
 Router = Blueprint('Router', __name__)
 
 # Initialize states
-subregions_state = {region: False for region in get_all_regions()}
-presets_names = get_all_preset_names()
+class State:
+    def __init__(self) -> None:
+        self.subregions_state = {region: False for region in get_all_regions()}
+        self.presets_names = get_all_preset_names()
 
-def update_subregions(checked_subs: list[str]):
-    """Set and remember values of subregion checkboxes."""
-    for sub in subregions_state.keys():
-        subregions_state[sub] = sub in checked_subs
+    def update_subregions(self, checked_subs: list[str]) -> None:
+        """Set and remember values of subregion checkboxes."""
+        for sub in self.subregions_state.keys():
+            self.subregions_state[sub] = sub in checked_subs
+
+    def update_presets_names(self) -> None:
+        """Update names of presets based on database."""
+        self.presets_names = get_all_preset_names()
+
+state = State()
+
+def render(html_name: str) -> str:
+    return render_template(
+        html_name,
+        subregions=state.subregions_state,
+        preset_names=state.presets_names
+    )
 
 @app.route("/")
 def index():
-    return render_template(
-        "index.html",
-        subregions=subregions_state,
-        preset_names=presets_names
-    )
+    return render("index.html")
 
 @app.route("/load", methods=["POST"])
 def on_load():
     p_name = request.form.get("presets")
     if p_name != "":
         chosen_preset = get_preset(p_name)
-        update_subregions(chosen_preset["sub_regions"])
-    return render_template(
-        "index.html",
-        subregions=subregions_state,
-        preset_names=presets_names
-    )
+        state.update_subregions(chosen_preset["sub_regions"])
+    return render("index.html")
 
 @app.route('/submit', methods=["POST"])
 def on_submit():
     checked_subs = request.form.getlist("subregions")
-    update_subregions(checked_subs)
+    state.update_subregions(checked_subs)
     if checked_subs != []:
         try:
             update_plot(checked_subs)
             return render_template(
                 'submitted.html',
-                subregions=subregions_state,
-                preset_names=presets_names
+                subregions=state.subregions_state,
+                preset_names=state.presets_names
             )
         except NoDataException:
             pass
-    return render_template(
-        'no_countries.html',
-        subregions=subregions_state,
-        preset_names=presets_names
-    )
+    return render("no_countries.html")
 
 @app.route('/save', methods=['POST'])
 def on_save():
     checked_subs = request.form.getlist('subregions')
     preset_name  = request.form.get("preset_input")
-    update_subregions(checked_subs)
+    state.update_subregions(checked_subs)
     save_preset(preset_name, checked_subs)
-    return render_template(
-        'index.html',
-        subregions=subregions_state,
-        preset_names=presets_names
-    )
+    state.update_presets_names()
+    return render('saved_preset.html')
 
