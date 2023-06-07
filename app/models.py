@@ -43,6 +43,32 @@ def fetch_regions_data(subregions: list[str]):
     cur.close()
     return result
 
+def get_all_preset_names() -> list[str]:
+    cur = conn.cursor()
+    sql = """
+        SELECT DISTINCT pName
+        FROM SubRegionPresets
+    """
+    cur.execute(sql)
+    p_names = cur.fetchall()
+    cur.close()
+    return [name[0] for name in p_names]
+
+def get_preset(preset_name: str) -> dict[str, list[str]]:
+    cur = conn.cursor()
+    sql = """
+        SELECT DISTINCT sub_region
+        FROM countries
+        JOIN SubRegionPresets
+            ON sub_region_code = subregioncode
+        WHERE pName = %s
+    """
+    cur.execute(sql, (preset_name, ))
+    subregions = cur.fetchall()
+    result = {"sub_regions": [reg[0] for reg in subregions]}
+    cur.close()
+    return result
+
 def get_plot(subregions: list[str]):
     """Make scatterplot and return its figure."""    
     result = fetch_regions_data(subregions)
