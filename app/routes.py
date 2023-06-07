@@ -25,9 +25,9 @@ def index():
 @app.route("/load", methods=["POST"])
 def on_load():
     p_name = request.form.get("presets")
-    print(p_name)
-    chosen_preset = get_preset(p_name)
-    update_subregions(chosen_preset["sub_regions"])
+    if p_name != "":
+        chosen_preset = get_preset(p_name)
+        update_subregions(chosen_preset["sub_regions"])
     return render_template(
         "index.html",
         subregions=subregions_state,

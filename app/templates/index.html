@@ -8,6 +8,7 @@
 
 <form action="/load" method="POST">
     <select name="presets" id="presets">
+        <option value="">-- Choose preset --</option>
         {% for preset_name in preset_names %}
             <option value="{{ preset_name }}" >{{preset_name}}</option>
         {% endfor %}
