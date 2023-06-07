@@ -53,3 +53,14 @@ def on_submit():
         subregions=subregions_state,
         preset_names=presets_names
     )
+
+@app.route('/save', methods=['POST'])
+def on_save():
+    checked_subs = request.form.getlist('subregions')
+    update_subregions(checked_subs)
+    print(checked_subs)
+    # return render_template(
+    #     'index.html',
+
+    # )
+
