@@ -49,6 +49,7 @@ def get_all_preset_names() -> list[str]:
     sql = """
         SELECT DISTINCT pName
         FROM SubRegionPresets
+        ORDER BY pName
     """
     cur.execute(sql)
     p_names = cur.fetchall()

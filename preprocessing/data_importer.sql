@@ -36,6 +36,28 @@ CREATE TABLE SubRegionPresets(
     subRegionCode char(3)
 );
 
+
+INSERT INTO SubRegionPresets
+    (pName, subRegionCode)
+VALUES
+    ('The World', '053'), 
+    ('The World', '030'), 
+    ('The World', '145'), 
+    ('The World', '015'), 
+    ('The World', '155'), 
+    ('The World', '054'), 
+    ('The World', '202'), 
+    ('The World', '143'), 
+    ('The World', '034'), 
+    ('The World', '154'), 
+    ('The World', '039'), 
+    ('The World', '035'), 
+    ('The World', '057'), 
+    ('The World', '419'), 
+    ('The World', '151'), 
+    ('The World', '021'), 
+    ('The World', '061');
+
 INSERT INTO SubRegionPresets
     (pName, subRegionCode)
 VALUES
@@ -44,7 +66,6 @@ VALUES
     ('Asia', '034'),
     ('Asia', '035'),
     ('Asia', '143');
-
 
 INSERT INTO SubRegionPresets
     (pName, subRegionCode)
