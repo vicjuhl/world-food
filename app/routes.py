@@ -1,5 +1,11 @@
 from flask import render_template, request, Blueprint
-from app.models import update_plot, get_all_regions, get_all_preset_names, get_preset
+from app.models import (
+    update_plot,
+    get_all_regions,
+    get_all_preset_names,
+    get_preset,
+    save_preset
+)
 from app import app
 from app.utils.exceptions import NoDataException
 
@@ -57,10 +63,12 @@ def on_submit():
 @app.route('/save', methods=['POST'])
 def on_save():
     checked_subs = request.form.getlist('subregions')
+    preset_name  = request.form.get("preset_input")
     update_subregions(checked_subs)
-    print(checked_subs)
-    # return render_template(
-    #     'index.html',
-
-    # )
+    save_preset(preset_name, checked_subs)
+    return render_template(
+        'index.html',
+        subregions=subregions_state,
+        preset_names=presets_names
+    )
 

@@ -3,6 +3,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 from app.utils.exceptions import NoDataException
+
 matplotlib.use('Agg')
 
 def get_all_regions():
@@ -68,6 +69,23 @@ def get_preset(preset_name: str) -> dict[str, list[str]]:
     result = {"sub_regions": [reg[0] for reg in subregions]}
     cur.close()
     return result
+
+def save_preset(preset_name: str, checked_subs: list[str]) -> None:
+    cur = conn.cursor()
+    for sub_name in checked_subs:
+        sql = """
+            INSERT INTO SubRegionPresets
+                (pName, subRegionCode)
+            VALUES(
+                %s,
+                (SELECT DISTINCT sub_region_code
+                FROM Countries
+                WHERE sub_region = %s)
+            );
+        """
+        cur.execute(sql, (preset_name, sub_name))
+    conn.commit()
+    cur.close()
 
 def get_plot(subregions: list[str]):
     """Make scatterplot and return its figure."""    
