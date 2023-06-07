@@ -58,9 +58,10 @@ def on_submit():
 def on_save():
     checked_subs = request.form.getlist('subregions')
     update_subregions(checked_subs)
-    print(checked_subs)
-    # return render_template(
-    #     'index.html',
-
-    # )
+    print(checked_subs) 
+    return render_template(
+        'index.html',
+        subregions=subregions_state,
+        preset_names=presets_names
+    )
 
