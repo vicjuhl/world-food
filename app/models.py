@@ -21,7 +21,7 @@ def get_all_regions():
     result_list = [elm[0] for elm in result]
     return result_list
 
-def fetch_plot_data(subregions: list[str], rural_urban: str):
+def fetch_plot_data(subregions: list[str], rural_urban: str, male_female: str):
     cur = conn.cursor()
     cur.execute(f"""
         SELECT sub_region, unaf_avg, bmi_avg
@@ -39,7 +39,11 @@ def fetch_plot_data(subregions: list[str], rural_urban: str):
             USING (iso_alpha)
         JOIN affordability
             USING (iso_alpha)
-        WHERE sub_region IN {tuple(subregions)}
+        WHERE sub_region IN {tuple(subregions)} 
+        {    "AND sex = 'Men'"   if male_female == 'male'
+        else "AND sex = 'Women'" if male_female == 'female'
+        else ""                  if male_female == "average"
+        else "ERROR: Gender type not recognized "}
         GROUP BY region, country_name, sub_region
 		ORDER BY region, sub_region) A
     """)
@@ -100,9 +104,9 @@ def delete_preset(preset_name: str) -> None:
     conn.commit()
     cur.close()
 
-def get_plot(subregions: list[str], rural_urban: str):
+def get_plot(subregions: list[str], rural_urban: str, male_female: str):
     """Make scatterplot and return its figure."""    
-    result = fetch_plot_data(subregions, rural_urban)
+    result = fetch_plot_data(subregions, rural_urban, male_female)
     try:
         subregion, affordability, bmi_or_waste = zip(*result)
     except:
@@ -146,7 +150,7 @@ def get_plot(subregions: list[str], rural_urban: str):
     plt.tight_layout()
     return plt
 
-def update_plot(subregions: list[str], rural_urban: str) -> None:
-    plot = get_plot(subregions, rural_urban)
+def update_plot(subregions: list[str], rural_urban: str, male_female: str) -> None:
+    plot = get_plot(subregions, rural_urban, male_female)
     plot.savefig(plot_dir / 'plot.png')
     plot.close()

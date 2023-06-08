@@ -19,6 +19,7 @@ class State:
         self.subregions = {region: False for region in get_all_regions()}
         self.presets_names = get_all_preset_names()
         self.rural_urban = "average"
+        self.male_female = "average"
 
     def update_subregions(self, checked_subs: list[str]) -> None:
         """Set and remember values of subregion checkboxes."""
@@ -36,7 +37,8 @@ def render(html_name: str) -> str:
         html_name,
         subregions=state.subregions,
         preset_names=state.presets_names,
-        rural_urban_state=state.rural_urban
+        rural_urban_state=state.rural_urban,
+        male_female_state=state.male_female
     )
 
 @app.route("/")
@@ -76,9 +78,10 @@ def on_submit():
     checked_subs = request.form.getlist("subregions")
     state.update_subregions(request.form.getlist("subregions"))
     state.rural_urban = request.form.get("rural_urban")
+    state.male_female = request.form.get("male_female")
     if checked_subs != []:
         try:
-            update_plot(checked_subs, state.rural_urban)
+            update_plot(checked_subs, state.rural_urban, state.male_female)
             return render('submitted.html')
         except NoDataException:
             pass
