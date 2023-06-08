@@ -25,7 +25,9 @@ Activate the enviroment:
 1. Create a PostgreSQL database named worldfood on your desired server, using port 5432.
 2. Open a terminal and navigate to the world-food/ directory.
 3. Run the following (you will be prompted to type your database password):
-    UNIX: ```bash setup.sh```
+
+    Bash (UNIX): ```bash setup.sh```
+    
     PowerShell: ```setup.ps1```
 
 
