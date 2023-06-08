@@ -46,18 +46,18 @@ VALUES
     ('The World', 'Average', 'Average'),
     ('Asia', 'Average', 'Average'),
     ('Europe', 'Average', 'Average'),
-    ('Europe: Women in Cities', 'Urban', 'Females');
+    ('Europe: Women in Cities', 'Urban', 'Female');
 
 CREATE TABLE SubRegionPresets(
     pName text NOT NULL,
-    subRegionCode char(3),
-    PRIMARY KEY (pName, subRegionCode),
+    sub_region_code char(3),
+    PRIMARY KEY (pName, sub_region_code),
     FOREIGN KEY (pName) REFERENCES Presets
         ON DELETE CASCADE
 );
 
 INSERT INTO SubRegionPresets
-    (pName, subRegionCode)
+    (pName, sub_region_code)
 VALUES
     ('The World', '053'), 
     ('The World', '030'), 

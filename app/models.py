@@ -64,30 +64,24 @@ def get_all_preset_names() -> list[str]:
     cur.close()
     return [name[0] for name in p_names]
 
-def get_preset_subregions(preset_name: str) -> dict[str, list[str]]:
+def get_preset_settings(preset_name: str) -> dict[str, str]:
     cur = conn.cursor()
     cur.execute(f"""
         SELECT DISTINCT sub_region
         FROM countries
         JOIN SubRegionPresets
-            ON sub_region_code = subregioncode
+            USING (sub_region_code)
         WHERE pName = '{preset_name}'
     """)
     subregions = cur.fetchall()
-    result = {"sub_regions": [reg[0] for reg in subregions]}
-    cur.close()
-    return result
-
-def get_preset_settings(preset_name: str) -> dict[str, str]: ##TODO: Combine with get_preset_subregions() function
-    cur = conn.cursor()
     cur.execute(f"""
         SELECT rural_urban, male_female
         FROM Presets
         WHERE pName = '{preset_name}' 
     """)
     settings = cur.fetchone()
-    print(settings)
     result = {
+        "sub_regions": [reg[0] for reg in subregions] ,
         "rural_urban" : settings[0] ,
         "male_female" : settings[1]
     }
@@ -105,7 +99,7 @@ def save_preset(preset_name: str, checked_subs: list[str], rural_urban: str, mal
     for sub_name in checked_subs:
         cur.execute(f"""
             INSERT INTO SubRegionPresets
-                (pName, subRegionCode)
+                (pName, sub_region_code)
             VALUES(
                 '{preset_name}',
                 (SELECT DISTINCT sub_region_code

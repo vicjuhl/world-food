@@ -5,7 +5,6 @@ from app.models import (
     update_plot,
     get_all_regions,
     get_all_preset_names,
-    get_preset_subregions,
     get_preset_settings,
     save_preset,
     delete_preset
@@ -20,18 +19,15 @@ class State:
     def __init__(self) -> None:
         self.subregions = {region: False for region in get_all_regions()}
         self.presets_names = get_all_preset_names()
-        self.rural_urban = "average"
-        self.male_female = "average"
+        self.rural_urban = "Average"
+        self.male_female = "Average"
 
-    def update_subregions(self, checked_subs: list[str]) -> None:
-        """Set and remember values of subregion checkboxes."""
-        for sub in self.subregions.keys():
-            self.subregions[sub] = sub in checked_subs
-
-    def update_settings(self, settings: dict[str: str]):
-        """Set and remember values of rural/urban and male/female views."""
-        self.rural_urban = settings['rural_urban']
-        self.male_female = settings['male_female']
+    def update_settings(self, sub_regions: list[str], rural_urban: str, male_female: str) -> None:
+            """Set and remember values subregion checkboxes, of rural/urban and of male/female views."""
+            self.rural_urban = rural_urban
+            self.male_female = male_female
+            for sub in self.subregions.keys():
+                self.subregions[sub] = sub in sub_regions
 
     def update_presets_names(self) -> None:
         """Update names of presets based on database."""
@@ -56,19 +52,18 @@ def index():
 def on_load():
     p_name = request.form.get("presets")
     if p_name != "":
-        chosen_subregions = get_preset_subregions(p_name)
-        chosen_settings = get_preset_settings(p_name) 
-        state.update_subregions(chosen_subregions["sub_regions"])
-        state.update_settings(chosen_settings)
+        chosen_settings = get_preset_settings(p_name)
+        state.update_settings(**chosen_settings)
     return render("index.html")
 
 @app.route('/save', methods=['POST'])
 def on_save():
-    checked_subs = request.form.getlist('subregions')
     preset_name  = request.form.get("preset_input")
+    checked_subs = request.form.getlist('subregions')
     rural_urban  = request.form.get("rural_urban")
     male_female  = request.form.get("male_female")
-    state.update_subregions(checked_subs)
+    
+    state.update_settings(checked_subs, rural_urban, male_female)
     if checked_subs != []:
         try:
             save_preset(preset_name, checked_subs, rural_urban, male_female)
@@ -93,14 +88,13 @@ def on_delete():
 @app.route('/submit', methods=["POST"])
 def on_submit():
     checked_subs = request.form.getlist("subregions")
-    state.update_subregions(request.form.getlist("subregions"))
-    state.rural_urban = request.form.get("rural_urban")
-    print(state.rural_urban)
-    state.male_female = request.form.get("male_female")
-    print(state.male_female)
+    rural_urban = request.form.get("rural_urban")
+    male_female = request.form.get("male_female")
+    
+    state.update_settings(checked_subs, rural_urban, male_female)
     if checked_subs != []:
         try:
-            update_plot(checked_subs, state.rural_urban, state.male_female)
+            update_plot(checked_subs, rural_urban, male_female)
             return render('submitted.html')
         except NoDataException:
             pass
