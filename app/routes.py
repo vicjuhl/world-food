@@ -1,5 +1,5 @@
 from flask import render_template, request, Blueprint
-from psycopg2.errors import InFailedSqlTransaction
+from psycopg2.errors import InFailedSqlTransaction, UniqueViolation
 
 from app.models import (
     update_plot,
@@ -70,6 +70,9 @@ def on_save():
             state.update_presets_names()
             return render('saved_preset.html')
         except InFailedSqlTransaction as e:
+            print(e)
+            return render('no_preset_saved.html')
+        except UniqueViolation as e:
             print(e)
             return render('no_preset_saved.html')
     else:
