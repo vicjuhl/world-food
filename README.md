@@ -34,7 +34,7 @@ Activate the enviroment:
 
     PowerShell:
     
-        setup.ps1
+        .\setup.ps1
 
 
 ## Running the app
