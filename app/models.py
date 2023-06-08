@@ -124,11 +124,11 @@ def get_plot(subregions: list[str], rural_urban: str, male_female: str):
     """Make scatterplot and return its figure."""    
     result = fetch_plot_data(subregions, rural_urban, male_female)
     try:
-        subregion, affordability, bmi_or_waste = zip(*result)
+        subregion, affordability, bmi = zip(*result)
     except:
         raise NoDataException
 
-    df = pd.DataFrame(dict(subregion=subregion, affordability = affordability, bmi_or_waste = bmi_or_waste))
+    df = pd.DataFrame(dict(subregion=subregion, affordability = affordability, bmi = bmi))
     chosen_subregions = df['subregion'].drop_duplicates()
 
     _, ax = plt.subplots(figsize=(10, 8))
@@ -154,7 +154,7 @@ def get_plot(subregions: list[str], rural_urban: str, male_female: str):
         "Polynesia": 'plum'
         }
 
-    ax.scatter(df['affordability'], df['bmi_or_waste'], c = df['subregion'].map(colors))
+    ax.scatter(df['affordability'], df['bmi'], c = df['subregion'].map(colors))
     
     legend_labels = list(chosen_subregions)
     legend_handles = [plt.Line2D([0], [0], marker='o', color='w', label=label, markerfacecolor=colors[label], markersize=10)
