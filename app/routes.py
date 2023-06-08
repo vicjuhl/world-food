@@ -76,8 +76,10 @@ def on_delete():
     p_name = request.form.get("presets")
     if p_name != "":
         delete_preset(p_name)
-    state.update_presets_names()
-    return render("index.html")
+        state.update_presets_names()
+        return render("index.html")
+    else:
+        return render('no_preset_deleted.html')
 
 @app.route('/submit', methods=["POST"])
 def on_submit():
