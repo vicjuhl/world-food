@@ -2,8 +2,9 @@ name: world-food
 channels:
   - defaults
 dependencies:
-  - python=3.11.3
   - pandas=1.5.3
+  - pip=23.0.1
+  - python=3.11.3
   - pip:
       - flask==2.3.2
       - matplotlib==3.7.1
