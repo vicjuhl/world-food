@@ -1,4 +1,5 @@
 from flask import render_template, request, Blueprint
+from psycopg2.errors import InFailedSqlTransaction
 
 from app.models import (
     update_plot,
@@ -60,9 +61,13 @@ def on_save():
     rural_urban  = request.form.get("rural_urban")
     state.update_subregions(checked_subs)
     if checked_subs != []:
-        save_preset(preset_name, checked_subs, rural_urban)
-        state.update_presets_names()
-        return render('saved_preset.html')
+        try:
+            save_preset(preset_name, checked_subs, rural_urban)
+            state.update_presets_names()
+            return render('saved_preset.html')
+        except InFailedSqlTransaction as e:
+            print(e)
+            return render('no_preset_saved.html')
     else:
         return render('no_preset_saved.html')
 
