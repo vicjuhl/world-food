@@ -36,15 +36,17 @@ CREATE TABLE BMI(
 CREATE TABLE Presets(
     pName text,
     rural_urban text NOT NULL,
+    male_female text NOT NULL,
     PRIMARY KEY (pName)
 );
 
 INSERT INTO Presets
-    (pName, rural_urban)
+    (pName, rural_urban, male_female)
 VALUES
-    ('The World', 'Average'),
-    ('Asia', 'Average'),
-    ('Europe', 'Average');
+    ('The World', 'Average', 'Average'),
+    ('Asia', 'Average', 'Average'),
+    ('Europe', 'Average', 'Average'),
+    ('Europe: Women in Cities', 'Urban', 'Females');
 
 CREATE TABLE SubRegionPresets(
     pName text NOT NULL,
@@ -82,7 +84,11 @@ VALUES
     ('Europe', '155'),
     ('Europe', '154'),
     ('Europe', '039'),
-    ('Europe', '151');
+    ('Europe', '151'),
+    ('Europe: Women in Cities', '155'),
+    ('Europe: Women in Cities', '154'),
+    ('Europe: Women in Cities', '039'),
+    ('Europe: Women in Cities', '151');
 
 \copy Countries FROM 'data_cleaned/countries_cleaned.csv' WITH CSV HEADER DELIMITER ',';
 \copy Affordability FROM 'data_cleaned/unaffordability_cleaned.csv' WITH CSV HEADER DELIMITER ',';

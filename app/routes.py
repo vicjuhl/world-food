@@ -5,7 +5,8 @@ from app.models import (
     update_plot,
     get_all_regions,
     get_all_preset_names,
-    get_preset,
+    get_preset_subregions,
+    get_preset_settings,
     save_preset,
     delete_preset
 )
@@ -26,6 +27,11 @@ class State:
         """Set and remember values of subregion checkboxes."""
         for sub in self.subregions.keys():
             self.subregions[sub] = sub in checked_subs
+
+    def update_settings(self, settings: dict[str: str]):
+        """Set and remember values of rural/urban and male/female views."""
+        self.rural_urban = settings['rural_urban']
+        self.male_female = settings['male_female']
 
     def update_presets_names(self) -> None:
         """Update names of presets based on database."""
@@ -50,8 +56,10 @@ def index():
 def on_load():
     p_name = request.form.get("presets")
     if p_name != "":
-        chosen_preset = get_preset(p_name)
-        state.update_subregions(chosen_preset["sub_regions"])
+        chosen_subregions = get_preset_subregions(p_name)
+        chosen_settings = get_preset_settings(p_name) 
+        state.update_subregions(chosen_subregions["sub_regions"])
+        state.update_settings(chosen_settings)
     return render("index.html")
 
 @app.route('/save', methods=['POST'])
@@ -59,10 +67,11 @@ def on_save():
     checked_subs = request.form.getlist('subregions')
     preset_name  = request.form.get("preset_input")
     rural_urban  = request.form.get("rural_urban")
+    male_female  = request.form.get("male_female")
     state.update_subregions(checked_subs)
     if checked_subs != []:
         try:
-            save_preset(preset_name, checked_subs, rural_urban)
+            save_preset(preset_name, checked_subs, rural_urban, male_female)
             state.update_presets_names()
             return render('saved_preset.html')
         except InFailedSqlTransaction as e:
@@ -77,7 +86,7 @@ def on_delete():
     if p_name != "":
         delete_preset(p_name)
         state.update_presets_names()
-        return render("index.html")
+        return render('deleted_preset.html')
     else:
         return render('no_preset_deleted.html')
 
@@ -86,7 +95,9 @@ def on_submit():
     checked_subs = request.form.getlist("subregions")
     state.update_subregions(request.form.getlist("subregions"))
     state.rural_urban = request.form.get("rural_urban")
+    print(state.rural_urban)
     state.male_female = request.form.get("male_female")
+    print(state.male_female)
     if checked_subs != []:
         try:
             update_plot(checked_subs, state.rural_urban, state.male_female)

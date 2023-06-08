@@ -30,9 +30,10 @@ def fetch_plot_data(subregions: list[str], rural_urban: str, male_female: str):
             sub_region,
             AVG(unaffordable) unaf_avg,
             AVG({
-                "(mean_urban + mean_rural)/2" if rural_urban == "average"
-                else "mean_urban" if rural_urban == "urban"
-                else "mean_rural"
+                "(mean_urban + mean_rural)/2" if rural_urban == "Average"
+                else "mean_urban" if rural_urban == "Urban"
+                else "mean_rural" if rural_urban == "Rural"
+                else "ERROR: Rural/Urban type not recognized "
             }) bmi_avg
         FROM Countries
         JOIN bmi
@@ -40,9 +41,9 @@ def fetch_plot_data(subregions: list[str], rural_urban: str, male_female: str):
         JOIN affordability
             USING (iso_alpha)
         WHERE sub_region IN {tuple(subregions)} 
-        {    "AND sex = 'Men'"   if male_female == 'male'
-        else "AND sex = 'Women'" if male_female == 'female'
-        else ""                  if male_female == "average"
+        {    "AND sex = 'Men'"   if male_female == 'Male'
+        else "AND sex = 'Women'" if male_female == 'Female'
+        else ""                  if male_female == 'Average'
         else "ERROR: Gender type not recognized "}
         GROUP BY region, country_name, sub_region
 		ORDER BY region, sub_region) A
@@ -63,7 +64,7 @@ def get_all_preset_names() -> list[str]:
     cur.close()
     return [name[0] for name in p_names]
 
-def get_preset(preset_name: str) -> dict[str, list[str]]:
+def get_preset_subregions(preset_name: str) -> dict[str, list[str]]:
     cur = conn.cursor()
     cur.execute(f"""
         SELECT DISTINCT sub_region
@@ -77,13 +78,29 @@ def get_preset(preset_name: str) -> dict[str, list[str]]:
     cur.close()
     return result
 
-def save_preset(preset_name: str, checked_subs: list[str], rural_urban: str) -> None:
+def get_preset_settings(preset_name: str) -> dict[str, str]: ##TODO: Combine with get_preset_subregions() function
+    cur = conn.cursor()
+    cur.execute(f"""
+        SELECT rural_urban, male_female
+        FROM Presets
+        WHERE pName = '{preset_name}' 
+    """)
+    settings = cur.fetchone()
+    print(settings)
+    result = {
+        "rural_urban" : settings[0] ,
+        "male_female" : settings[1]
+    }
+    cur.close()
+    return result
+
+def save_preset(preset_name: str, checked_subs: list[str], rural_urban: str, male_female:str) -> None:
     cur = conn.cursor()
     cur.execute(f"""
         INSERT INTO Presets
-            (pName, rural_urban)        
+            (pName, rural_urban, male_female)        
         VALUES
-            ('{preset_name}', '{rural_urban}');
+            ('{preset_name}', '{rural_urban}', '{male_female}');
     """)
     for sub_name in checked_subs:
         cur.execute(f"""
