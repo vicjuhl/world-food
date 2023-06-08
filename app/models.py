@@ -116,7 +116,7 @@ def get_plot(subregions: list[str], rural_urban: str):
     df = pd.DataFrame(dict(subregion=subregion, affordability = affordability, bmi_or_waste = bmi_or_waste))
     chosen_subregions = df['subregion'].drop_duplicates()
 
-    _, ax = plt.subplots(figsize=(12, 8))
+    _, ax = plt.subplots(figsize=(10, 8))
 
     colors = {
         "Antarctica": 'gray',
