@@ -1,4 +1,6 @@
 from flask import render_template, request, Blueprint
+from typing import Literal
+
 from app.models import (
     update_plot,
     get_all_regions,
@@ -15,13 +17,14 @@ Router = Blueprint('Router', __name__)
 # Initialize states
 class State:
     def __init__(self) -> None:
-        self.subregions_state = {region: False for region in get_all_regions()}
+        self.subregions = {region: False for region in get_all_regions()}
         self.presets_names = get_all_preset_names()
+        self.rural_urban : Literal["rural", "urban", "average"] = "average"
 
     def update_subregions(self, checked_subs: list[str]) -> None:
         """Set and remember values of subregion checkboxes."""
-        for sub in self.subregions_state.keys():
-            self.subregions_state[sub] = sub in checked_subs
+        for sub in self.subregions.keys():
+            self.subregions[sub] = sub in checked_subs
 
     def update_presets_names(self) -> None:
         """Update names of presets based on database."""
@@ -32,7 +35,7 @@ state = State()
 def render(html_name: str) -> str:
     return render_template(
         html_name,
-        subregions=state.subregions_state,
+        subregions=state.subregions,
         preset_names=state.presets_names
     )
 
@@ -71,15 +74,12 @@ def on_delete():
 @app.route('/submit', methods=["POST"])
 def on_submit():
     checked_subs = request.form.getlist("subregions")
-    state.update_subregions(checked_subs)
+    state.update_subregions(request.form.getlist("subregions"))
+    state.rural_urban = request.form.get("rural_urban")
     if checked_subs != []:
         try:
             update_plot(checked_subs)
-            return render_template(
-                'submitted.html',
-                subregions=state.subregions_state,
-                preset_names=state.presets_names
-            )
+            return render('submitted.html')
         except NoDataException:
             pass
     return render("no_countries.html")

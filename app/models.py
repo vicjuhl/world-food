@@ -141,7 +141,7 @@ def get_plot(subregions: list[str]):
     ax.legend(handles=legend_handles, labels=legend_labels, loc='upper right')
 
     plt.xlabel('Affordability in %')
-    plt.ylabel('BMI or Waste')
+    plt.ylabel('BMI')
     plt.tight_layout()
     return plt
 
