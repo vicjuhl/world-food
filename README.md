@@ -1,7 +1,7 @@
 # world-food
 By Frederik van Wylich-Muxoll (ckj429) and Victor Kaplan Kjellerup (rgp867)
 
-This repo contains the World Food application – a visual query tool which allows you to see the correlations between the share of a population who cannot afford a healthy meal and that populations BMI in a scatter plot. 
+This repo contains the World Food application – a visual query tool which allows you to see the correlations between the share of a population who cannot afford a healthy meal and that population's BMI in a scatter plot. 
 
 The shown data is roughly simplified due to uncareful averaging over time and other parameters and <ins>SHOULD NOT</ins> be used for scientific or journalistic purposes.
 
