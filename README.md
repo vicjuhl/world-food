@@ -29,4 +29,4 @@ With conda installed, please do the following to install environment:
 ## Running the app
 1. While still in the world-food directory, run:
     python run.py
-2. Open the URL printed to console in a webrowser.
+2. Open the URL printed to console in a webrowser (default is http://127.0.0.1:5000).
