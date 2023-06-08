@@ -1,6 +1,9 @@
 # world-food
 By Frederik van Wylich-Muxoll (ckj429) and Victor Kaplan Kjellerup (rgp867)
-This repo contains the World Food application. It is a visual query tool which allows you to see the correlations between the share of a population who cannot afford a healthy meal and that populations BMI in a scatter plot. The actual data is roughly simplified due to uncareful averaging over time and other parameters and <ins>SHOULD NOT</ins> be used for scientific or journalistic purposes.
+
+This repo contains the World Food application – a visual query tool which allows you to see the correlations between the share of a population who cannot afford a healthy meal and that populations BMI in a scatter plot. 
+
+The shown data is roughly simplified due to uncareful averaging over time and other parameters and <ins>SHOULD NOT</ins> be used for scientific or journalistic purposes.
 
 ## Data sources
 Unaffordability of healthy foods:
@@ -15,7 +18,7 @@ https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/
 ## Software
 You need a functioning installation of miniconda to install the virtual environment. The Miniconda3 version should be download here: https://docs.conda.io/en/latest/miniconda.html. Use version number 23.5.0.
 
-With conda installed, run the following to create or update environment as environment name world-food:
+With conda installed, run the following to create or update environment with name world-food (automatically chosen due to environment file):
 
     conda env create -f environment.yml --force
 
@@ -24,8 +27,8 @@ Activate the enviroment:
     conda activate world-food
 
 ## Database setup
-1. Create a PostgreSQL database named worldfood on your desired server, using port 5432.
-2. Open a terminal and navigate to the world-food/ directory.
+1. Create a PostgreSQL database named __worldfood__ on your desired server, using port 5432.
+2. Navigate to the directory world-food/.
 3. Run the following (you will be prompted to type your database password):
 
     Bash (UNIX):
@@ -36,7 +39,7 @@ Activate the enviroment:
     
         .\setup.ps1
 
-4. If neither works for you, you can simply execute the two commands found in the script manually in your preferred console.
+4. If neither setup script works for you due to use of another shell, you can simply execute the two commands found in the script manually.
 
 
 ## Running the app
