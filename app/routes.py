@@ -1,5 +1,4 @@
 from flask import render_template, request, Blueprint
-from typing import Literal
 
 from app.models import (
     update_plot,
@@ -19,7 +18,7 @@ class State:
     def __init__(self) -> None:
         self.subregions = {region: False for region in get_all_regions()}
         self.presets_names = get_all_preset_names()
-        self.rural_urban : Literal["rural", "urban", "average"] = "average"
+        self.rural_urban = "average"
 
     def update_subregions(self, checked_subs: list[str]) -> None:
         """Set and remember values of subregion checkboxes."""
@@ -78,7 +77,7 @@ def on_submit():
     state.rural_urban = request.form.get("rural_urban")
     if checked_subs != []:
         try:
-            update_plot(checked_subs)
+            update_plot(checked_subs, state.rural_urban)
             return render('submitted.html')
         except NoDataException:
             pass

@@ -21,25 +21,37 @@ def get_all_regions():
     result_list = [elm[0] for elm in result]
     return result_list
 
-def fetch_regions_data(subregions: list[str]):
+def fetch_plot_data(subregions: list[str], rural_urban: str):
     cur = conn.cursor()
-    sql = """
+    rural_urban_str = (
+        "(mean_urban + mean_rural)/2" if rural_urban == "average"
+        else "mean_urban" if rural_urban == "urban"
+        else "mean_rural"
+    )
+    print(rural_urban_str)
+    sql = f"""
         SELECT sub_region, unaf_avg, bmi_avg
 		FROM
 		(SELECT region,
             sub_region,
-            avg(unaffordable) unaf_avg,
-            avg((mean_urban + mean_rural)/2) bmi_avg
+            AVG(unaffordable) unaf_avg,
+            AVG({
+                "(mean_urban + mean_rural)/2" if rural_urban == "average"
+                else "mean_urban" if rural_urban == "urban"
+                else "mean_rural"
+            }) bmi_avg
         FROM Countries
         JOIN bmi
             USING (iso_alpha)
         JOIN affordability
             USING (iso_alpha)
-        WHERE sub_region IN %s
+        WHERE sub_region IN {tuple(subregions)}
         GROUP BY region, country_name, sub_region
 		ORDER BY region, sub_region) A
     """    
-    cur.execute(sql, [tuple(subregions)])
+    cur.execute(sql
+                # , [tuple(subregions)]
+                )
     result = cur.fetchall()
     cur.close()
     return result
@@ -99,9 +111,9 @@ def delete_preset(preset_name: str) -> None:
     conn.commit()
     cur.close()
 
-def get_plot(subregions: list[str]):
+def get_plot(subregions: list[str], rural_urban: str):
     """Make scatterplot and return its figure."""    
-    result = fetch_regions_data(subregions)
+    result = fetch_plot_data(subregions, rural_urban)
     try:
         subregion, affordability, bmi_or_waste = zip(*result)
     except:
@@ -110,7 +122,7 @@ def get_plot(subregions: list[str]):
     df = pd.DataFrame(dict(subregion=subregion, affordability = affordability, bmi_or_waste = bmi_or_waste))
     chosen_subregions = df['subregion'].drop_duplicates()
 
-    fig, ax = plt.subplots(figsize=(14, 8))
+    _, ax = plt.subplots(figsize=(14, 8))
 
     colors = {
         "Antarctica": 'gray',
@@ -145,7 +157,7 @@ def get_plot(subregions: list[str]):
     plt.tight_layout()
     return plt
 
-def update_plot(subregions: list[str]) -> None:
-    plot = get_plot(subregions)
+def update_plot(subregions: list[str], rural_urban: str) -> None:
+    plot = get_plot(subregions, rural_urban)
     plot.savefig(plot_dir / 'plot.png')
     plot.close()
