@@ -3,15 +3,20 @@ By Frederik van Wylich-Muxoll (ckj429) and Victor Kaplan Kjellerup (rgp867)
 This repo contains the World Food application. It is a visual query tool which allows you to see the correlations between the share of a population who cannot afford a healthy meal and that populations BMI in a scatter plot. The actual data is roughly simplified due to uncareful averaging over time and other parameters and SHOULD NOT be used for scientific or journalistic purposes.
 
 ## Data sources
+Unaffordability of healthy foods:
 https://ourworldindata.org/food-prices#introduction
+
+BMI:
 https://ncdrisc.org/data-downloads-adiposity-urban-rural.html
+
+Countries and regions:
 https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv
 
 ## Software
 You need a functioning installation of miniconda to install the virtual environment. The Miniconda3 version should be download here: https://docs.conda.io/en/latest/miniconda.html. Use version number 23.5.0.
 
 With conda installed, run the following to create or update environment as environment name world-food:
-    conda env create -f environment.yml --force
+    ```markdown conda env create -f environment.yml --force```
 
 Activate the enviroment:
     conda activate world-food
