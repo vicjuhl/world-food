@@ -10,13 +10,17 @@
     <select name="presets" id="presets">
         <option value="">-- Choose preset --</option>
         {% for preset_name in preset_names %}
-            <option value="{{ preset_name }}" >{{preset_name}}</option>
+            <option value="{{ preset_name }}" x>{{preset_name}}</option>
         {% endfor %}
     </select>
-    <button><a>Load preset</a></button><br><br>
+    <button><a>Load preset</a></button>
+    <button formaction="/delete"><a>Delete preset</a></button><br><br>
 </form>
 
 <form action="/submit" method="POST">
+    <label for="preset_input">Preset name:</label>
+    <input type="text" id="preset_input" name="preset_input">
+    <button formaction="/save"><a>Save preset</a></button><br><br>
     <fieldset>
         <legend>Choose your sub-regions:</legend>
         <div id="subRegionList" style="column-count: 2; column-gap: 20px;"></div>
@@ -33,17 +37,15 @@
         {% endfor %}
     </fieldset>
 
-    <label for="views">Choose your view to compare against affordability:</label>
-    <select name="views" id="views">
-        <option value="bmi">BMI</option>
-        <option value="waste">Waste</option>
+    <label for="rural_urban">Choose rural and/or urban data:</label>
+    <select name="rural_urban" id="rural_urban">
+        <option value="rural" {{ "selected" if rural_urban_state == "rural" else "" }}>Rural</option>
+        <option value="urban" {{ "selected" if rural_urban_state == "urban" else "" }}>Urban</option>
+        <option value="average" {{ "selected" if rural_urban_state == "average" else "" }}>Average</option>
     </select>
     <br><br>
 
-    <label for="preset_input">Preset name:</label><br>
-    <input type="text" id="preset_input" name="preset_input"><br><br>
-    <button formaction="/save"><a>Save preset</a></button>
-    <button><a>View selected data</a></button><br>
+    <button><a>View selected data</a></button><br><br>
     {% block content %}{% endblock %}
 </form>
 
