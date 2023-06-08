@@ -1,32 +1,46 @@
 # world-food
 By Frederik van Wylich-Muxoll (ckj429) and Victor Kaplan Kjellerup (rgp867)
-For the DIS project
+This repo contains the World Food application. It is a visual query tool which allows you to see the correlations between the share of a population who cannot afford a healthy meal and that populations BMI in a scatter plot. The actual data is roughly simplified due to uncareful averaging over time and other parameters and SHOULD NOT be used for scientific or journalistic purposes.
 
 ## Data sources
 https://ourworldindata.org/food-prices#introduction
 https://ncdrisc.org/data-downloads-adiposity-urban-rural.html
-https://www.fao.org/platform-food-loss-waste/flw-data/en/
 https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv
 
 ## Software
-You need a functioning installation of miniconda to install the virtual environment. The Miniconda3 version should be download here: https://docs.conda.io/en/latest/miniconda.html. Use version number 23.1.0.
+You need a functioning installation of miniconda to install the virtual environment. The Miniconda3 version should be download here: https://docs.conda.io/en/latest/miniconda.html. Use version number 23.5.0.
 
-With conda installed, please do the following to install environment:
-    To generate new conda env from env file (default name world-food):
-    conda env create -f environment.yml
-
-    To update existing conda env from env file:
+With conda installed, run the following to create or update environment as environment name world-food:
     conda env create -f environment.yml --force
+
+Activate the enviroment:
+    conda activate world-food
 
 ## Database setup
 1. Create a PostgreSQL database named worldfood on your desired server, using port 5432.
 2. Open a terminal and navigate to the world-food/ directory.
-3. Run the following command:
-    python preprocessing/clean_data.py
-4. Run the following command:
-    psql -U postgres -d worldfood -f preprocessing/data_importer.sql -p 5432
+3. Run the following (you will be prompted to type your database password):
+    bash setup.sh
 
 ## Running the app
 1. While still in the world-food directory, run:
     python run.py
 2. Open the URL printed to console in a webrowser.
+
+## Interacting with the app
+### Viewing data
+In the application you will find several options for filtering: by
+    - "sub-region" (smaller than continent regions of the world)
+    - gender (Males, Females, Average)
+    - urban vs rural population (Urban, Rural, Average)
+
+Note: The average does not take relative population size into account
+
+You can simply choose the configuration you are interested in and click "View selected data" to see the scatter plot. Each mark on the scatter plot represents one country.
+
+### Presets
+The application allows you to store, load and delete presets.
+
+To load or delete a preset, simply select it from the dropdown menu and click either "Load preset" or "Delete preset".
+
+To save a preset, first choose your preferred configuration, type your desired preset name, and click "Save preset". The chosen preset name must not be identical to any existing one. The preset will then immediately appear in the dropdown menu alongside the others.
