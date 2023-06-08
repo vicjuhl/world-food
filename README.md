@@ -16,20 +16,22 @@ https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/
 You need a functioning installation of miniconda to install the virtual environment. The Miniconda3 version should be download here: https://docs.conda.io/en/latest/miniconda.html. Use version number 23.5.0.
 
 With conda installed, run the following to create or update environment as environment name world-food:
-    ```markdown conda env create -f environment.yml --force```
+    ```conda env create -f environment.yml --force```
 
 Activate the enviroment:
-    conda activate world-food
+    ```conda activate world-food```
 
 ## Database setup
 1. Create a PostgreSQL database named worldfood on your desired server, using port 5432.
 2. Open a terminal and navigate to the world-food/ directory.
 3. Run the following (you will be prompted to type your database password):
-    bash setup.sh
+    UNIX: ```bash setup.sh```
+    PowerShell: ```setup.ps1```
+
 
 ## Running the app
 1. While still in the world-food directory, run:
-    python run.py
+    ```python run.py```
 2. Open the URL printed to console in a webrowser.
 
 ## Interacting with the app
