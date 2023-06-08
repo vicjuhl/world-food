@@ -35,7 +35,8 @@ def render(html_name: str) -> str:
     return render_template(
         html_name,
         subregions=state.subregions,
-        preset_names=state.presets_names
+        preset_names=state.presets_names,
+        rural_urban_state=state.rural_urban
     )
 
 @app.route("/")

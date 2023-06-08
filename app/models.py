@@ -23,13 +23,7 @@ def get_all_regions():
 
 def fetch_plot_data(subregions: list[str], rural_urban: str):
     cur = conn.cursor()
-    rural_urban_str = (
-        "(mean_urban + mean_rural)/2" if rural_urban == "average"
-        else "mean_urban" if rural_urban == "urban"
-        else "mean_rural"
-    )
-    print(rural_urban_str)
-    sql = f"""
+    cur.execute(f"""
         SELECT sub_region, unaf_avg, bmi_avg
 		FROM
 		(SELECT region,
@@ -48,10 +42,7 @@ def fetch_plot_data(subregions: list[str], rural_urban: str):
         WHERE sub_region IN {tuple(subregions)}
         GROUP BY region, country_name, sub_region
 		ORDER BY region, sub_region) A
-    """    
-    cur.execute(sql
-                # , [tuple(subregions)]
-                )
+    """)
     result = cur.fetchall()
     cur.close()
     return result
@@ -86,28 +77,26 @@ def get_preset(preset_name: str) -> dict[str, list[str]]:
 def save_preset(preset_name: str, checked_subs: list[str]) -> None:
     cur = conn.cursor()
     for sub_name in checked_subs:
-        sql = """
+        cur.execute(f"""
             INSERT INTO SubRegionPresets
                 (pName, subRegionCode)
             VALUES(
-                %s,
+                {preset_name},
                 (SELECT DISTINCT sub_region_code
                 FROM Countries
-                WHERE sub_region = %s)
+                WHERE sub_region = {sub_name})
             );
-        """
-        cur.execute(sql, (preset_name, sub_name))
+        """)
     conn.commit()
     cur.close()
 
 def delete_preset(preset_name: str) -> None:
     cur = conn.cursor()
-    sql = """
+    cur.execute(f"""
         DELETE
         FROM subregionpresets
-        WHERE pName = %s;
-    """
-    cur.execute(sql, (preset_name, ))
+        WHERE pName = {preset_name};
+    """)
     conn.commit()
     cur.close()
 
