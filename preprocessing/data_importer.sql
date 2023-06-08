@@ -7,18 +7,18 @@ DROP TABLE IF EXISTS SubRegionPresets;
 
 CREATE TABLE Countries(
     iso_alpha char(3),
-    country_name text,
-    sub_region text,
-    sub_region_code char(3),
-    region text,
-    region_code char(3),
+    country_name text NOT NULL,
+    sub_region text NOT NULL,
+    sub_region_code char(3) NOT NULL,
+    region text NOT NULL,
+    region_code char(3) NOT NULL,
     PRIMARY KEY (iso_alpha)
 );
 
 CREATE TABLE Affordability(
     iso_alpha char(3),
     year_ integer,
-    unaffordable float,
+    unaffordable float NOT NULL,
     PRIMARY KEY (iso_alpha, year_),
     FOREIGN KEY (iso_alpha) REFERENCES Countries
 );
