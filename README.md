@@ -6,6 +6,7 @@ For the DIS project
 https://ourworldindata.org/food-prices#introduction
 https://ncdrisc.org/data-downloads-adiposity-urban-rural.html
 https://www.fao.org/platform-food-loss-waste/flw-data/en/
+https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv
 
 ## Software
 You need a functioning installation of miniconda to install the virtual environment. The Miniconda3 version should be download here: https://docs.conda.io/en/latest/miniconda.html. Use version number 23.1.0.
