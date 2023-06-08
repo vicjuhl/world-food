@@ -36,6 +36,8 @@ Activate the enviroment:
     
         .\setup.ps1
 
+4. If neither works for you, you can simply execute the two commands found in the script manually in your preferred console.
+
 
 ## Running the app
 1. While still in the world-food directory, run:
