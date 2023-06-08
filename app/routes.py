@@ -57,9 +57,10 @@ def on_load():
 def on_save():
     checked_subs = request.form.getlist('subregions')
     preset_name  = request.form.get("preset_input")
+    rural_urban  = request.form.get("rural_urban")
     state.update_subregions(checked_subs)
     if checked_subs != []:
-        save_preset(preset_name, checked_subs)
+        save_preset(preset_name, checked_subs, rural_urban)
         state.update_presets_names()
         return render('saved_preset.html')
     else:

@@ -23,22 +23,19 @@
             </form>
 
             <form action="/submit" method="POST">
-                <label for="preset_input">Preset name:</label>
-                <input type="text" id="preset_input" name="preset_input">
-                <button formaction="/save"><a>Save preset</a></button><br><br>
                 <fieldset>
                     <legend>Choose your sub-regions:</legend>
                     <div id="subRegionList" style="column-count: 2; column-gap: 20px;"></div>
                     {% for subregion in subregions.items() %}
-                        <div style="break-inside: avoid;">
-                            <input
-                                type="checkbox"
-                                id="{{ subregion[0] }}"
-                                name="subregions"
-                                value="{{ subregion[0] }}"
-                                {{ "checked" if subregion[1] else "" }}>
-                            <label for="{{ subregion }}">{{ subregion[0] }}</label>
-                        </div>
+                    <div style="break-inside: avoid;">
+                        <input
+                        type="checkbox"
+                        id="{{ subregion[0] }}"
+                        name="subregions"
+                        value="{{ subregion[0] }}"
+                        {{ "checked" if subregion[1] else "" }}>
+                        <label for="{{ subregion }}">{{ subregion[0] }}</label>
+                    </div>
                     {% endfor %}
                 </fieldset>
                 <br>
@@ -58,6 +55,9 @@
                     <option value="average" {{ "selected" if male_female_state == "average" else "" }}>Average</option>
                 </select>
                 <br><br>
+                <label for="preset_input">Preset name:</label><br>
+                <input type="text" id="preset_input" name="preset_input">
+                <button formaction="/save"><a>Save preset</a></button><br><br>
 
                 <button><a>View selected data</a></button><br><br>
             </form>

@@ -65,30 +65,35 @@ def get_all_preset_names() -> list[str]:
 
 def get_preset(preset_name: str) -> dict[str, list[str]]:
     cur = conn.cursor()
-    sql = """
+    cur.execute(f"""
         SELECT DISTINCT sub_region
         FROM countries
         JOIN SubRegionPresets
             ON sub_region_code = subregioncode
-        WHERE pName = %s
-    """
-    cur.execute(sql, (preset_name, ))
+        WHERE pName = '{preset_name}'
+    """)
     subregions = cur.fetchall()
     result = {"sub_regions": [reg[0] for reg in subregions]}
     cur.close()
     return result
 
-def save_preset(preset_name: str, checked_subs: list[str]) -> None:
+def save_preset(preset_name: str, checked_subs: list[str], rural_urban: str) -> None:
     cur = conn.cursor()
+    cur.execute(f"""
+        INSERT INTO Presets
+            (pName, rural_urban)        
+        VALUES
+            ('{preset_name}', '{rural_urban}');
+    """)
     for sub_name in checked_subs:
         cur.execute(f"""
             INSERT INTO SubRegionPresets
                 (pName, subRegionCode)
             VALUES(
-                {preset_name},
+                '{preset_name}',
                 (SELECT DISTINCT sub_region_code
                 FROM Countries
-                WHERE sub_region = {sub_name})
+                WHERE sub_region = '{sub_name}')
             );
         """)
     conn.commit()
@@ -98,8 +103,8 @@ def delete_preset(preset_name: str) -> None:
     cur = conn.cursor()
     cur.execute(f"""
         DELETE
-        FROM subregionpresets
-        WHERE pName = {preset_name};
+        FROM Presets
+        WHERE pName = '{preset_name}';
     """)
     conn.commit()
     cur.close()
@@ -115,7 +120,7 @@ def get_plot(subregions: list[str], rural_urban: str, male_female: str):
     df = pd.DataFrame(dict(subregion=subregion, affordability = affordability, bmi_or_waste = bmi_or_waste))
     chosen_subregions = df['subregion'].drop_duplicates()
 
-    _, ax = plt.subplots(figsize=(12, 8))
+    _, ax = plt.subplots(figsize=(10, 8))
 
     colors = {
         "Antarctica": 'gray',

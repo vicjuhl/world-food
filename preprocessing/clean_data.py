@@ -13,6 +13,7 @@ unaff = pd.read_csv(unaff_path)
 unaff = unaff[unaff["Code"].notna()]
 unaff.drop(columns=["Entity"], inplace=True)
 unaff.rename(columns={"Code": "iso_alpha", "Year": "year_"}, inplace=True)
+unaff = unaff.loc[unaff["iso_alpha"].str.len() == 3]
 unaff.to_csv(out_dir / "unaffordability_cleaned.csv", index=False)
 print("Copied affordability")
 
